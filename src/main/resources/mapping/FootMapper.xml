@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.FootMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.Foot" >
+    <id column="foot_id" property="footId" jdbcType="INTEGER" />
+    <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
+    <result column="t_id" property="tId" jdbcType="INTEGER" />
+    <result column="t_info_title" property="tInfoTitle" jdbcType="VARCHAR" />
+    <result column="t_name" property="tName" jdbcType="VARCHAR" />
+    <result column="t_img" property="tImg" jdbcType="VARCHAR" />
+    <result column="t_info_img" property="tInfoImg" jdbcType="VARCHAR" />
+    <result column="f_time" property="fTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    foot_id, t_info_id, t_id, t_info_title, t_name, t_img, t_info_img, f_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from foot
+    where foot_id = #{footId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from foot
+    where foot_id = #{footId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.Foot" >
+    insert into foot (foot_id, t_info_id, t_id, 
+      t_info_title, t_name, t_img, 
+      t_info_img, f_time)
+    values (#{footId,jdbcType=INTEGER}, #{tInfoId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, 
+      #{tInfoTitle,jdbcType=VARCHAR}, #{tName,jdbcType=VARCHAR}, #{tImg,jdbcType=VARCHAR}, 
+      #{tInfoImg,jdbcType=VARCHAR}, #{fTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.Foot" >
+    insert into foot
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="footId != null" >
+        foot_id,
+      </if>
+      <if test="tInfoId != null" >
+        t_info_id,
+      </if>
+      <if test="tId != null" >
+        t_id,
+      </if>
+      <if test="tInfoTitle != null" >
+        t_info_title,
+      </if>
+      <if test="tName != null" >
+        t_name,
+      </if>
+      <if test="tImg != null" >
+        t_img,
+      </if>
+      <if test="tInfoImg != null" >
+        t_info_img,
+      </if>
+      <if test="fTime != null" >
+        f_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="footId != null" >
+        #{footId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoId != null" >
+        #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null" >
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoTitle != null" >
+        #{tInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tName != null" >
+        #{tName,jdbcType=VARCHAR},
+      </if>
+      <if test="tImg != null" >
+        #{tImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoImg != null" >
+        #{tInfoImg,jdbcType=VARCHAR},
+      </if>
+      <if test="fTime != null" >
+        #{fTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.Foot" >
+    update foot
+    <set >
+      <if test="tInfoId != null" >
+        t_info_id = #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null" >
+        t_id = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoTitle != null" >
+        t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tName != null" >
+        t_name = #{tName,jdbcType=VARCHAR},
+      </if>
+      <if test="tImg != null" >
+        t_img = #{tImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoImg != null" >
+        t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      </if>
+      <if test="fTime != null" >
+        f_time = #{fTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where foot_id = #{footId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.Foot" >
+    update foot
+    set t_info_id = #{tInfoId,jdbcType=INTEGER},
+      t_id = #{tId,jdbcType=INTEGER},
+      t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      t_name = #{tName,jdbcType=VARCHAR},
+      t_img = #{tImg,jdbcType=VARCHAR},
+      t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      f_time = #{fTime,jdbcType=TIMESTAMP}
+    where foot_id = #{footId,jdbcType=INTEGER}
+  </update>
+</mapper>

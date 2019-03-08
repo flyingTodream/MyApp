@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.AuserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.AuserInfo" >
+    <id column="a_id" property="aId" jdbcType="INTEGER" />
+    <result column="a_name" property="aName" jdbcType="VARCHAR" />
+    <result column="a_phone" property="aPhone" jdbcType="VARCHAR" />
+    <result column="a_pass" property="aPass" jdbcType="VARCHAR" />
+    <result column="a_email" property="aEmail" jdbcType="VARCHAR" />
+    <result column="a_question" property="aQuestion" jdbcType="VARCHAR" />
+    <result column="a_answer" property="aAnswer" jdbcType="VARCHAR" />
+    <result column="a_address" property="aAddress" jdbcType="VARCHAR" />
+    <result column="a_money" property="aMoney" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a_id, a_name, a_phone, a_pass, a_email, a_question, a_answer, a_address, a_money
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from a_user_info
+    where a_id = #{aId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from a_user_info
+    where a_id = #{aId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.AuserInfo" >
+    insert into a_user_info (a_id, a_name, a_phone, 
+      a_pass, a_email, a_question, 
+      a_answer, a_address, a_money
+      )
+    values (#{aId,jdbcType=INTEGER}, #{aName,jdbcType=VARCHAR}, #{aPhone,jdbcType=VARCHAR}, 
+      #{aPass,jdbcType=VARCHAR}, #{aEmail,jdbcType=VARCHAR}, #{aQuestion,jdbcType=VARCHAR}, 
+      #{aAnswer,jdbcType=VARCHAR}, #{aAddress,jdbcType=VARCHAR}, #{aMoney,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.AuserInfo" >
+    insert into a_user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aId != null" >
+        a_id,
+      </if>
+      <if test="aName != null" >
+        a_name,
+      </if>
+      <if test="aPhone != null" >
+        a_phone,
+      </if>
+      <if test="aPass != null" >
+        a_pass,
+      </if>
+      <if test="aEmail != null" >
+        a_email,
+      </if>
+      <if test="aQuestion != null" >
+        a_question,
+      </if>
+      <if test="aAnswer != null" >
+        a_answer,
+      </if>
+      <if test="aAddress != null" >
+        a_address,
+      </if>
+      <if test="aMoney != null" >
+        a_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aId != null" >
+        #{aId,jdbcType=INTEGER},
+      </if>
+      <if test="aName != null" >
+        #{aName,jdbcType=VARCHAR},
+      </if>
+      <if test="aPhone != null" >
+        #{aPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="aPass != null" >
+        #{aPass,jdbcType=VARCHAR},
+      </if>
+      <if test="aEmail != null" >
+        #{aEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="aQuestion != null" >
+        #{aQuestion,jdbcType=VARCHAR},
+      </if>
+      <if test="aAnswer != null" >
+        #{aAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="aAddress != null" >
+        #{aAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="aMoney != null" >
+        #{aMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.AuserInfo" >
+    update a_user_info
+    <set >
+      <if test="aName != null" >
+        a_name = #{aName,jdbcType=VARCHAR},
+      </if>
+      <if test="aPhone != null" >
+        a_phone = #{aPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="aPass != null" >
+        a_pass = #{aPass,jdbcType=VARCHAR},
+      </if>
+      <if test="aEmail != null" >
+        a_email = #{aEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="aQuestion != null" >
+        a_question = #{aQuestion,jdbcType=VARCHAR},
+      </if>
+      <if test="aAnswer != null" >
+        a_answer = #{aAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="aAddress != null" >
+        a_address = #{aAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="aMoney != null" >
+        a_money = #{aMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where a_id = #{aId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.AuserInfo" >
+    update a_user_info
+    set a_name = #{aName,jdbcType=VARCHAR},
+      a_phone = #{aPhone,jdbcType=VARCHAR},
+      a_pass = #{aPass,jdbcType=VARCHAR},
+      a_email = #{aEmail,jdbcType=VARCHAR},
+      a_question = #{aQuestion,jdbcType=VARCHAR},
+      a_answer = #{aAnswer,jdbcType=VARCHAR},
+      a_address = #{aAddress,jdbcType=VARCHAR},
+      a_money = #{aMoney,jdbcType=DECIMAL}
+    where a_id = #{aId,jdbcType=INTEGER}
+  </update>
+</mapper>

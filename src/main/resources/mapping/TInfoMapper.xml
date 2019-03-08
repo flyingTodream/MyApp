@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.TInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.TInfo" >
+    <id column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
+    <result column="a_id" property="aId" jdbcType="INTEGER" />
+    <result column="t_info_money" property="tInfoMoney" jdbcType="DECIMAL" />
+    <result column="t_info_img" property="tInfoImg" jdbcType="VARCHAR" />
+    <result column="t_info_address" property="tInfoAddress" jdbcType="VARCHAR" />
+    <result column="t_info_title" property="tInfoTitle" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.app.model.TInfo" extends="BaseResultMap" >
+    <result column="t_info_introduce" property="tInfoIntroduce" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    t_info_id, a_id, t_info_money, t_info_img, t_info_address, t_info_title
+  </sql>
+  <sql id="Blob_Column_List" >
+    t_info_introduce
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_info
+    where t_info_id = #{tInfoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_info
+    where t_info_id = #{tInfoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.TInfo" >
+    insert into t_info (t_info_id, a_id, t_info_money, 
+      t_info_img, t_info_address, t_info_title, 
+      t_info_introduce)
+    values (#{tInfoId,jdbcType=INTEGER}, #{aId,jdbcType=INTEGER}, #{tInfoMoney,jdbcType=DECIMAL}, 
+      #{tInfoImg,jdbcType=VARCHAR}, #{tInfoAddress,jdbcType=VARCHAR}, #{tInfoTitle,jdbcType=VARCHAR}, 
+      #{tInfoIntroduce,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.TInfo" >
+    insert into t_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tInfoId != null" >
+        t_info_id,
+      </if>
+      <if test="aId != null" >
+        a_id,
+      </if>
+      <if test="tInfoMoney != null" >
+        t_info_money,
+      </if>
+      <if test="tInfoImg != null" >
+        t_info_img,
+      </if>
+      <if test="tInfoAddress != null" >
+        t_info_address,
+      </if>
+      <if test="tInfoTitle != null" >
+        t_info_title,
+      </if>
+      <if test="tInfoIntroduce != null" >
+        t_info_introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tInfoId != null" >
+        #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="aId != null" >
+        #{aId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoMoney != null" >
+        #{tInfoMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tInfoImg != null" >
+        #{tInfoImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoAddress != null" >
+        #{tInfoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoTitle != null" >
+        #{tInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoIntroduce != null" >
+        #{tInfoIntroduce,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.TInfo" >
+    update t_info
+    <set >
+      <if test="aId != null" >
+        a_id = #{aId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoMoney != null" >
+        t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tInfoImg != null" >
+        t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoAddress != null" >
+        t_info_address = #{tInfoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoTitle != null" >
+        t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoIntroduce != null" >
+        t_info_introduce = #{tInfoIntroduce,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where t_info_id = #{tInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.app.model.TInfo" >
+    update t_info
+    set a_id = #{aId,jdbcType=INTEGER},
+      t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+      t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      t_info_address = #{tInfoAddress,jdbcType=VARCHAR},
+      t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      t_info_introduce = #{tInfoIntroduce,jdbcType=LONGVARCHAR}
+    where t_info_id = #{tInfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.TInfo" >
+    update t_info
+    set a_id = #{aId,jdbcType=INTEGER},
+      t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+      t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      t_info_address = #{tInfoAddress,jdbcType=VARCHAR},
+      t_info_title = #{tInfoTitle,jdbcType=VARCHAR}
+    where t_info_id = #{tInfoId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.ImgMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.Img" >
+    <id column="img_id" property="imgId" jdbcType="INTEGER" />
+    <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    img_id, t_info_id, img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from img
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from img
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.Img" >
+    insert into img (img_id, t_info_id, img
+      )
+    values (#{imgId,jdbcType=INTEGER}, #{tInfoId,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.Img" >
+    insert into img
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="imgId != null" >
+        img_id,
+      </if>
+      <if test="tInfoId != null" >
+        t_info_id,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="imgId != null" >
+        #{imgId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoId != null" >
+        #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.Img" >
+    update img
+    <set >
+      <if test="tInfoId != null" >
+        t_info_id = #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.Img" >
+    update img
+    set t_info_id = #{tInfoId,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR}
+    where img_id = #{imgId,jdbcType=INTEGER}
+  </update>
+</mapper>

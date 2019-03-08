@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.TEvaluationMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.TEvaluation" >
+    <id column="e_id" property="eId" jdbcType="INTEGER" />
+    <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
+    <result column="t_name" property="tName" jdbcType="VARCHAR" />
+    <result column="e_grade" property="eGrade" jdbcType="INTEGER" />
+    <result column="e_content" property="eContent" jdbcType="VARCHAR" />
+    <result column="e_time" property="eTime" jdbcType="VARCHAR" />
+    <result column="t_id" property="tId" jdbcType="INTEGER" />
+    <result column="e_is_anonymous" property="eIsAnonymous" jdbcType="VARCHAR" />
+    <result column="t_info_title" property="tInfoTitle" jdbcType="VARCHAR" />
+    <result column="t_info_img" property="tInfoImg" jdbcType="VARCHAR" />
+    <result column="t_info_money" property="tInfoMoney" jdbcType="DECIMAL" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.app.model.TEvaluation" extends="BaseResultMap" >
+    <result column="t_info_introduce" property="tInfoIntroduce" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    e_id, t_info_id, t_name, e_grade, e_content, e_time, t_id, e_is_anonymous, t_info_title, 
+    t_info_img, t_info_money
+  </sql>
+  <sql id="Blob_Column_List" >
+    t_info_introduce
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_evaluation
+    where e_id = #{eId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_evaluation
+    where e_id = #{eId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.TEvaluation" >
+    insert into t_evaluation (e_id, t_info_id, t_name, 
+      e_grade, e_content, e_time, 
+      t_id, e_is_anonymous, t_info_title, 
+      t_info_img, t_info_money, t_info_introduce
+      )
+    values (#{eId,jdbcType=INTEGER}, #{tInfoId,jdbcType=INTEGER}, #{tName,jdbcType=VARCHAR}, 
+      #{eGrade,jdbcType=INTEGER}, #{eContent,jdbcType=VARCHAR}, #{eTime,jdbcType=VARCHAR}, 
+      #{tId,jdbcType=INTEGER}, #{eIsAnonymous,jdbcType=VARCHAR}, #{tInfoTitle,jdbcType=VARCHAR}, 
+      #{tInfoImg,jdbcType=VARCHAR}, #{tInfoMoney,jdbcType=DECIMAL}, #{tInfoIntroduce,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.TEvaluation" >
+    insert into t_evaluation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="eId != null" >
+        e_id,
+      </if>
+      <if test="tInfoId != null" >
+        t_info_id,
+      </if>
+      <if test="tName != null" >
+        t_name,
+      </if>
+      <if test="eGrade != null" >
+        e_grade,
+      </if>
+      <if test="eContent != null" >
+        e_content,
+      </if>
+      <if test="eTime != null" >
+        e_time,
+      </if>
+      <if test="tId != null" >
+        t_id,
+      </if>
+      <if test="eIsAnonymous != null" >
+        e_is_anonymous,
+      </if>
+      <if test="tInfoTitle != null" >
+        t_info_title,
+      </if>
+      <if test="tInfoImg != null" >
+        t_info_img,
+      </if>
+      <if test="tInfoMoney != null" >
+        t_info_money,
+      </if>
+      <if test="tInfoIntroduce != null" >
+        t_info_introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="eId != null" >
+        #{eId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoId != null" >
+        #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="tName != null" >
+        #{tName,jdbcType=VARCHAR},
+      </if>
+      <if test="eGrade != null" >
+        #{eGrade,jdbcType=INTEGER},
+      </if>
+      <if test="eContent != null" >
+        #{eContent,jdbcType=VARCHAR},
+      </if>
+      <if test="eTime != null" >
+        #{eTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tId != null" >
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="eIsAnonymous != null" >
+        #{eIsAnonymous,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoTitle != null" >
+        #{tInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoImg != null" >
+        #{tInfoImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoMoney != null" >
+        #{tInfoMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tInfoIntroduce != null" >
+        #{tInfoIntroduce,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.TEvaluation" >
+    update t_evaluation
+    <set >
+      <if test="tInfoId != null" >
+        t_info_id = #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="tName != null" >
+        t_name = #{tName,jdbcType=VARCHAR},
+      </if>
+      <if test="eGrade != null" >
+        e_grade = #{eGrade,jdbcType=INTEGER},
+      </if>
+      <if test="eContent != null" >
+        e_content = #{eContent,jdbcType=VARCHAR},
+      </if>
+      <if test="eTime != null" >
+        e_time = #{eTime,jdbcType=VARCHAR},
+      </if>
+      <if test="tId != null" >
+        t_id = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="eIsAnonymous != null" >
+        e_is_anonymous = #{eIsAnonymous,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoTitle != null" >
+        t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoImg != null" >
+        t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tInfoMoney != null" >
+        t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tInfoIntroduce != null" >
+        t_info_introduce = #{tInfoIntroduce,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where e_id = #{eId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.app.model.TEvaluation" >
+    update t_evaluation
+    set t_info_id = #{tInfoId,jdbcType=INTEGER},
+      t_name = #{tName,jdbcType=VARCHAR},
+      e_grade = #{eGrade,jdbcType=INTEGER},
+      e_content = #{eContent,jdbcType=VARCHAR},
+      e_time = #{eTime,jdbcType=VARCHAR},
+      t_id = #{tId,jdbcType=INTEGER},
+      e_is_anonymous = #{eIsAnonymous,jdbcType=VARCHAR},
+      t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+      t_info_introduce = #{tInfoIntroduce,jdbcType=LONGVARCHAR}
+    where e_id = #{eId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.TEvaluation" >
+    update t_evaluation
+    set t_info_id = #{tInfoId,jdbcType=INTEGER},
+      t_name = #{tName,jdbcType=VARCHAR},
+      e_grade = #{eGrade,jdbcType=INTEGER},
+      e_content = #{eContent,jdbcType=VARCHAR},
+      e_time = #{eTime,jdbcType=VARCHAR},
+      t_id = #{tId,jdbcType=INTEGER},
+      e_is_anonymous = #{eIsAnonymous,jdbcType=VARCHAR},
+      t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+      t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+      t_info_money = #{tInfoMoney,jdbcType=DECIMAL}
+    where e_id = #{eId,jdbcType=INTEGER}
+  </update>
+</mapper>

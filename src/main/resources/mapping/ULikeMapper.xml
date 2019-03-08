@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.ULikeMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.ULike" >
+    <id column="u_like_id" property="uLikeId" jdbcType="INTEGER" />
+    <result column="t_id" property="tId" jdbcType="INTEGER" />
+    <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
+    <result column="u_time" property="uTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    u_like_id, t_id, t_info_id, u_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from u_like
+    where u_like_id = #{uLikeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from u_like
+    where u_like_id = #{uLikeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.ULike" >
+    insert into u_like (u_like_id, t_id, t_info_id, 
+      u_time)
+    values (#{uLikeId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{tInfoId,jdbcType=INTEGER}, 
+      #{uTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.ULike" >
+    insert into u_like
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uLikeId != null" >
+        u_like_id,
+      </if>
+      <if test="tId != null" >
+        t_id,
+      </if>
+      <if test="tInfoId != null" >
+        t_info_id,
+      </if>
+      <if test="uTime != null" >
+        u_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uLikeId != null" >
+        #{uLikeId,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null" >
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoId != null" >
+        #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="uTime != null" >
+        #{uTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.ULike" >
+    update u_like
+    <set >
+      <if test="tId != null" >
+        t_id = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="tInfoId != null" >
+        t_info_id = #{tInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="uTime != null" >
+        u_time = #{uTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where u_like_id = #{uLikeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.ULike" >
+    update u_like
+    set t_id = #{tId,jdbcType=INTEGER},
+      t_info_id = #{tInfoId,jdbcType=INTEGER},
+      u_time = #{uTime,jdbcType=VARCHAR}
+    where u_like_id = #{uLikeId,jdbcType=INTEGER}
+  </update>
+</mapper>
