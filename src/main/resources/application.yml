@@ -1,8 +1,5 @@
 server:
   port: 80
-  servlet:
-    session:
-      timeout: 1800s
   maxHttpHeaderSize: 102400
   maxHttpPostSize: 102400
 spring:
@@ -41,9 +38,6 @@ logging:
     java.sql: debug
     com.apache.ibatis: debug
     com.fly.mapper: debug
-endpoints:
- shutdown:
-  enabled: true
 pagehelper:
     helperDialect: mysql
     reasonable: true

@@ -4,15 +4,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.app.model.TUserInfo;
 
 @RestController
 @RequestMapping("/api")
 public class LoginController {
 
 	@RequestMapping("user/doLogin")
-	public JSONObject doLogin() {
+	public JSONObject doLogin(TUserInfo entity) {
 		JSONObject json = new JSONObject();
-		json.put("res", "发生的");
+		System.out.println(entity.gettName());
+		json.put("res", entity.gettName());
 		return json;
 	}
 	

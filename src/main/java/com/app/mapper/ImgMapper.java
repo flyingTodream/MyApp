@@ -1,5 +1,7 @@
 package com.app.mapper;
 
+import java.util.List;
+
 import com.app.model.Img;
 
 public interface ImgMapper {
@@ -14,4 +16,6 @@ public interface ImgMapper {
     int updateByPrimaryKeySelective(Img record);
 
     int updateByPrimaryKey(Img record);
+    
+    List<Img> selImg(Integer tId);
 }

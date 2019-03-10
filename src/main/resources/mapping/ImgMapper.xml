@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.ImgMapper" >
+<mapper namespace="com.app.mapper.ImgMapper" >
   <resultMap id="BaseResultMap" type="com.app.model.Img" >
     <id column="img_id" property="imgId" jdbcType="INTEGER" />
     <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
@@ -68,4 +68,8 @@
       img = #{img,jdbcType=VARCHAR}
     where img_id = #{imgId,jdbcType=INTEGER}
   </update>
+  
+  <select id="selImg" resultMap="BaseResultMap">
+select * from img where t_info_id = #{tId}
+</select>
 </mapper>
