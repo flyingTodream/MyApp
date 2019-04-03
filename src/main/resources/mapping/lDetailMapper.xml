@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.app.mapper.lDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.app.model.lDetail" >
+    <id column="detail_id" property="detailId" jdbcType="INTEGER" />
+    <result column="l_id" property="lId" jdbcType="INTEGER" />
+    <result column="l_line" property="lLine" jdbcType="VARCHAR" />
+    <result column="l_order" property="lOrder" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    detail_id, l_id, l_line, l_order
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from l_detail
+    where detail_id = #{detailId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from l_detail
+    where detail_id = #{detailId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.app.model.lDetail" >
+    insert into l_detail (detail_id, l_id, l_line, 
+      l_order)
+    values (#{detailId,jdbcType=INTEGER}, #{lId,jdbcType=INTEGER}, #{lLine,jdbcType=VARCHAR}, 
+      #{lOrder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.app.model.lDetail" >
+    insert into l_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detailId != null" >
+        detail_id,
+      </if>
+      <if test="lId != null" >
+        l_id,
+      </if>
+      <if test="lLine != null" >
+        l_line,
+      </if>
+      <if test="lOrder != null" >
+        l_order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detailId != null" >
+        #{detailId,jdbcType=INTEGER},
+      </if>
+      <if test="lId != null" >
+        #{lId,jdbcType=INTEGER},
+      </if>
+      <if test="lLine != null" >
+        #{lLine,jdbcType=VARCHAR},
+      </if>
+      <if test="lOrder != null" >
+        #{lOrder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.lDetail" >
+    update l_detail
+    <set >
+      <if test="lId != null" >
+        l_id = #{lId,jdbcType=INTEGER},
+      </if>
+      <if test="lLine != null" >
+        l_line = #{lLine,jdbcType=VARCHAR},
+      </if>
+      <if test="lOrder != null" >
+        l_order = #{lOrder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where detail_id = #{detailId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.app.model.lDetail" >
+    update l_detail
+    set l_id = #{lId,jdbcType=INTEGER},
+      l_line = #{lLine,jdbcType=VARCHAR},
+      l_order = #{lOrder,jdbcType=INTEGER}
+    where detail_id = #{detailId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getDetailList" resultMap="BaseResultMap">
+  	 select 
+    <include refid="Base_Column_List" />
+    from l_detail
+    where l_id = #{lId,jdbcType=INTEGER} order by detail_id asc
+  </select>
+</mapper>

@@ -1,8 +1,8 @@
-package com.app.mapper;
+package com.app.service;
 
 import com.app.model.ULike;
 
-public interface ULikeMapper {
+public interface ULikeService {
     int deleteByPrimaryKey(Integer uLikeId);
 
     int insert(ULike record);
@@ -16,5 +16,4 @@ public interface ULikeMapper {
     int updateByPrimaryKey(ULike record);
     
     ULike selectIsLike(ULike record);
-    
 }

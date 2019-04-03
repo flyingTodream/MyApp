@@ -26,8 +26,18 @@ public class TEvaluation implements Serializable {
     private Long tInfoMoney;
 
     private String tInfoIntroduce;
+    
+    private String tImg;
 
-    private static final long serialVersionUID = 1L;
+    public String gettImg() {
+		return tImg;
+	}
+
+	public void settImg(String tImg) {
+		this.tImg = tImg;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     public Integer geteId() {
         return eId;

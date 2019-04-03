@@ -1,5 +1,7 @@
 package com.app.mapper;
 
+import java.util.List;
+
 import com.app.model.TEvaluation;
 
 public interface TEvaluationMapper {
@@ -16,4 +18,10 @@ public interface TEvaluationMapper {
     int updateByPrimaryKeyWithBLOBs(TEvaluation record);
 
     int updateByPrimaryKey(TEvaluation record);
+    
+    //获取评价列表
+    List<TEvaluation> getRateListByTId(TEvaluation record);
+    
+    //获取景点平均分
+    float getRateAvg(Integer tInfoId);
 }

@@ -18,4 +18,9 @@ public class CommonContext {
 	 */
 	public static String HTTP_ERROR = "500";
 	
+	
+	/**
+	 *  未登录状态码
+	 */
+	public static String NO_LOGIN = "401";
 }

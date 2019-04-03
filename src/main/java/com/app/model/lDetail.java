@@ -2,7 +2,9 @@ package com.app.model;
 
 import java.io.Serializable;
 
-public class LDetail implements Serializable {
+public class lDetail implements Serializable {
+    private Integer detailId;
+
     private Integer lId;
 
     private String lLine;
@@ -10,6 +12,14 @@ public class LDetail implements Serializable {
     private Integer lOrder;
 
     private static final long serialVersionUID = 1L;
+
+    public Integer getDetailId() {
+        return detailId;
+    }
+
+    public void setDetailId(Integer detailId) {
+        this.detailId = detailId;
+    }
 
     public Integer getlId() {
         return lId;

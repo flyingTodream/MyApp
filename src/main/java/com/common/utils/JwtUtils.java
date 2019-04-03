@@ -16,7 +16,7 @@ public class JwtUtils {
 		/**
 		 * 过期时间
 		 */
-	private static final long EXPIRE_TIME	 = 30 * 60 *1000;
+	private static final long EXPIRE_TIME	 = 3000 * 60 *1000;
 	
 		/**
 		 * token私钥
@@ -99,7 +99,7 @@ public class JwtUtils {
 		String str = "1,2,3";
 		
 		List<String> result = Arrays.asList(str.split(","));
-		System.out.println(result.get(1));
+		System.out.println(sign("weirdo","1"));
 		//System.out.println(sign("11","22"));
 		//System.out.println(sign("11","22"));
 	}
