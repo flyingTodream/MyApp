@@ -7,6 +7,8 @@
 		<result column="t_info_id" property="tInfoId"
 			jdbcType="INTEGER" />
 		<result column="u_time" property="uTime" jdbcType="VARCHAR" />
+		<result column="t_img" property="tImg" jdbcType="VARCHAR" />
+		<result column="t_title" property="tTitle" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		u_like_id, t_id, t_info_id, u_time
@@ -21,12 +23,15 @@
 	<delete id="deleteByPrimaryKey"
 		parameterType="java.lang.Integer">
 		delete from u_like
-		where u_like_id = #{uLikeId,jdbcType=INTEGER}
+		where u_like_id =
+		#{uLikeId,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.app.model.ULike">
-		insert into u_like (u_like_id, t_id, t_info_id,
+		insert into u_like (u_like_id,
+		t_id, t_info_id,
 		u_time)
-		values (#{uLikeId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER},
+		values (#{uLikeId,jdbcType=INTEGER},
+		#{tId,jdbcType=INTEGER},
 		#{tInfoId,jdbcType=INTEGER},
 		#{uTime,jdbcType=VARCHAR})
 	</insert>
@@ -82,24 +87,32 @@
 		update u_like
 		set t_id = #{tId,jdbcType=INTEGER},
 		t_info_id = #{tInfoId,jdbcType=INTEGER},
-		u_time = #{uTime,jdbcType=VARCHAR}
+		u_time =
+		#{uTime,jdbcType=VARCHAR}
 		where u_like_id = #{uLikeId,jdbcType=INTEGER}
 	</update>
 
-	<select id="selectIsLike" resultMap="BaseResultMap"  parameterType="com.app.model.ULike">
+	<select id="selectIsLike" resultMap="BaseResultMap"
+		parameterType="com.app.model.ULike">
 		select
 		<include refid="Base_Column_List" />
 		from u_like
 		<where>
-		1=1
+			1=1
 			<if test="tId != null">
-			and	t_id = #{tId,jdbcType=INTEGER}
+				and t_id = #{tId,jdbcType=INTEGER}
 			</if>
 			<if test="tInfoId != null">
-			and	t_info_id = #{tInfoId,jdbcType=INTEGER}
+				and t_info_id = #{tInfoId,jdbcType=INTEGER}
 			</if>
 		</where>
 	</select>
 
-
+	<select id="getLikeList" resultMap="BaseResultMap">
+		select u.*,ti.t_info_img t_img,
+		ti.t_info_title t_title
+		from u_like u
+		left join t_info ti on u.t_info_id = ti.t_info_id
+		where u.t_id = #{tId}
+	</select>
 </mapper>

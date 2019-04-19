@@ -10,4 +10,6 @@ public interface RateService {
     
     //获取景点平均分
     float getRateAvg(Integer tInfoId);
+    
+    int insertSelective(TEvaluation record);
 }

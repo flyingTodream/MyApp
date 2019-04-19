@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.util.List;
+
 import com.app.model.ULike;
 
 public interface ULikeService {
@@ -16,4 +18,6 @@ public interface ULikeService {
     int updateByPrimaryKey(ULike record);
     
     ULike selectIsLike(ULike record);
+    
+    List<ULike> getLikeList(Integer tId);
 }

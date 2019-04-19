@@ -32,12 +32,15 @@ public class HomeController {
 	
 	//首页推荐景点
 	@RequestMapping("home/homeSearch")
-	public JSONObject homeSearch(TInfo entity) {
+	public JSONObject homeSearch(String kw) {
 		JSONObject json = new JSONObject();
 		json.put("code", CommonContext.HTTP_SUCCESS);
 		try {
-			json.put("list", tInfoServiceImpl.homeSelectInfo(entity));
-			
+			if(kw == null) {
+				json.put("list", tInfoServiceImpl.homeSelectInfo(null));
+			}else {
+				json.put("list", tInfoServiceImpl.searchInfo(kw));
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

@@ -1,7 +1,6 @@
 package com.app.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Foot implements Serializable {
     private Integer footId;
@@ -18,7 +17,7 @@ public class Foot implements Serializable {
 
     private String tInfoImg;
 
-    private Date fTime;
+    private String fTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -78,11 +77,11 @@ public class Foot implements Serializable {
         this.tInfoImg = tInfoImg;
     }
 
-    public Date getfTime() {
+    public String getfTime() {
         return fTime;
     }
 
-    public void setfTime(Date fTime) {
+    public void setfTime(String fTime) {
         this.fTime = fTime;
     }
 }

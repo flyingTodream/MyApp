@@ -1,5 +1,7 @@
 package com.app.mapper;
 
+import java.util.List;
+
 import com.app.model.Foot;
 
 public interface FootMapper {
@@ -14,4 +16,6 @@ public interface FootMapper {
     int updateByPrimaryKeySelective(Foot record);
 
     int updateByPrimaryKey(Foot record);
+    
+    List<Foot> getFootList(Integer tId);
 }

@@ -2,7 +2,6 @@ package com.app.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class OrderInfo implements Serializable {
     private Integer oId;
@@ -17,7 +16,7 @@ public class OrderInfo implements Serializable {
 
     private BigDecimal tInfoMoney;
 
-    private Date oTime;
+    private String oTime;
 
     private Integer oNumber;
 
@@ -31,7 +30,15 @@ public class OrderInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getoId() {
+    @Override
+	public String toString() {
+		return "OrderInfo [oId=" + oId + ", tId=" + tId + ", tName=" + tName + ", tInfoId=" + tInfoId + ", tInfoImg="
+				+ tInfoImg + ", tInfoMoney=" + tInfoMoney + ", oTime=" + oTime + ", oNumber=" + oNumber + ", oMoney="
+				+ oMoney + ", tInfoTitle=" + tInfoTitle + ", isEvaluation=" + isEvaluation + ", isOrder=" + isOrder
+				+ "]";
+	}
+
+	public Integer getoId() {
         return oId;
     }
 
@@ -79,11 +86,11 @@ public class OrderInfo implements Serializable {
         this.tInfoMoney = tInfoMoney;
     }
 
-    public Date getoTime() {
+    public String getoTime() {
         return oTime;
     }
 
-    public void setoTime(Date oTime) {
+    public void setoTime(String oTime) {
         this.oTime = oTime;
     }
 

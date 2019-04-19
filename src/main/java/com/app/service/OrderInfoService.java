@@ -1,10 +1,10 @@
-package com.app.mapper;
+package com.app.service;
 
 import java.util.List;
 
 import com.app.model.OrderInfo;
 
-public interface OrderInfoMapper {
+public interface OrderInfoService {
     int deleteByPrimaryKey(Integer oId);
 
     int insert(OrderInfo record);

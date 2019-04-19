@@ -1,5 +1,7 @@
 package com.app.mapper;
 
+import java.util.List;
+
 import com.app.model.ULike;
 
 public interface ULikeMapper {
@@ -16,5 +18,7 @@ public interface ULikeMapper {
     int updateByPrimaryKey(ULike record);
     
     ULike selectIsLike(ULike record);
+    
+    List<ULike> getLikeList(Integer tId);
     
 }

@@ -27,11 +27,18 @@ public class TUserInfo implements Serializable {
 
     private String tPayword;
 
-    private Date tRegtime;
+    private String tRegtime;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer gettId() {
+    @Override
+	public String toString() {
+		return "TUserInfo [tId=" + tId + ", tName=" + tName + ", tImg=" + tImg + ", tPass=" + tPass + ", tEmail="
+				+ tEmail + ", tPhone=" + tPhone + ", tQuestion=" + tQuestion + ", tAnswer=" + tAnswer + ", tAddress="
+				+ tAddress + ", tMoney=" + tMoney + ", tPayword=" + tPayword + ", tRegtime=" + tRegtime + "]";
+	}
+
+	public Integer gettId() {
         return tId;
     }
 
@@ -119,11 +126,11 @@ public class TUserInfo implements Serializable {
         this.tPayword = tPayword;
     }
 
-    public Date gettRegtime() {
+    public String gettRegtime() {
         return tRegtime;
     }
 
-    public void settRegtime(Date tRegtime) {
+    public void settRegtime(String tRegtime) {
         this.tRegtime = tRegtime;
     }
 }

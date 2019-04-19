@@ -27,4 +27,10 @@ public class RateServiceImpl implements RateService {
 		return mapper.getRateAvg(tInfoId);
 	}
 
+	@Override
+	public int insertSelective(TEvaluation record) {
+		// TODO Auto-generated method stub
+		return mapper.insertSelective(record);
+	}
+
 }

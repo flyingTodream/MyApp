@@ -39,7 +39,15 @@ public class TEvaluation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-    public Integer geteId() {
+    @Override
+	public String toString() {
+		return "TEvaluation [eId=" + eId + ", tInfoId=" + tInfoId + ", tName=" + tName + ", eGrade=" + eGrade
+				+ ", eContent=" + eContent + ", eTime=" + eTime + ", tId=" + tId + ", eIsAnonymous=" + eIsAnonymous
+				+ ", tInfoTitle=" + tInfoTitle + ", tInfoImg=" + tInfoImg + ", tInfoMoney=" + tInfoMoney
+				+ ", tInfoIntroduce=" + tInfoIntroduce + ", tImg=" + tImg + "]";
+	}
+
+	public Integer geteId() {
         return eId;
     }
 

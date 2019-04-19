@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.mapper.TInfoMapper;
 import com.app.model.TInfo;
+import com.app.model.TUserInfo;
 import com.app.service.TInfoService;
 
 @Service
@@ -19,6 +20,12 @@ public class TInfoServiceImpl implements TInfoService {
 	public List<TInfo> homeSelectInfo(TInfo record) {
 		// TODO Auto-generated method stub
 		return mapper.homeSelectInfo(record);
+	}
+
+	@Override
+	public List<TInfo> searchInfo(String kw) {
+		// TODO Auto-generated method stub
+		return mapper.searchInfo(kw);
 	}
 
 }

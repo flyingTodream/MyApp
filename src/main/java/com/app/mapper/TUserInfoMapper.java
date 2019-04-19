@@ -1,5 +1,7 @@
 package com.app.mapper;
 
+import java.math.BigDecimal;
+
 import com.app.model.TUserInfo;
 
 public interface TUserInfoMapper {
@@ -14,4 +16,8 @@ public interface TUserInfoMapper {
     int updateByPrimaryKeySelective(TUserInfo record);
 
     int updateByPrimaryKey(TUserInfo record);
+    
+    TUserInfo selectByPhone(String phone);
+    
+    int updateMoney(BigDecimal tMoney,Integer tId);
 }

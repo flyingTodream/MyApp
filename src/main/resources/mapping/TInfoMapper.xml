@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper
-	namespace="com.app.mapper.TInfoMapper">
+<mapper namespace="com.app.mapper.TInfoMapper">
 	<resultMap id="BaseResultMap" type="com.app.model.TInfo">
 		<id column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
 		<result column="a_id" property="aId" jdbcType="INTEGER" />
@@ -20,7 +19,8 @@
 			jdbcType="LONGVARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		t_info_id, a_id, t_info_money, t_info_img, t_info_address, t_info_title
+		t_info_id, a_id, t_info_money, t_info_img, t_info_address,
+		t_info_title
 	</sql>
 	<sql id="Blob_Column_List">
 		t_info_introduce
@@ -37,15 +37,19 @@
 	<delete id="deleteByPrimaryKey"
 		parameterType="java.lang.Integer">
 		delete from t_info
-		where t_info_id = #{tInfoId,jdbcType=INTEGER}
+		where t_info_id =
+		#{tInfoId,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.app.model.TInfo">
-		insert into t_info (t_info_id, a_id, t_info_money,
+		insert into t_info (t_info_id,
+		a_id, t_info_money,
 		t_info_img, t_info_address, t_info_title,
 		t_info_introduce)
-		values (#{tInfoId,jdbcType=INTEGER}, #{aId,jdbcType=INTEGER},
+		values (#{tInfoId,jdbcType=INTEGER},
+		#{aId,jdbcType=INTEGER},
 		#{tInfoMoney,jdbcType=DECIMAL},
-		#{tInfoImg,jdbcType=VARCHAR}, #{tInfoAddress,jdbcType=VARCHAR}, #{tInfoTitle,jdbcType=VARCHAR},
+		#{tInfoImg,jdbcType=VARCHAR}, #{tInfoAddress,jdbcType=VARCHAR},
+		#{tInfoTitle,jdbcType=VARCHAR},
 		#{tInfoIntroduce,jdbcType=LONGVARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="com.app.model.TInfo">
@@ -117,7 +121,8 @@
 				t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
 			</if>
 			<if test="tInfoIntroduce != null">
-				t_info_introduce = #{tInfoIntroduce,jdbcType=LONGVARCHAR},
+				t_info_introduce =
+				#{tInfoIntroduce,jdbcType=LONGVARCHAR},
 			</if>
 		</set>
 		where t_info_id = #{tInfoId,jdbcType=INTEGER}
@@ -127,37 +132,66 @@
 		update t_info
 		set a_id = #{aId,jdbcType=INTEGER},
 		t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
-		t_info_img = #{tInfoImg,jdbcType=VARCHAR},
-		t_info_address = #{tInfoAddress,jdbcType=VARCHAR},
-		t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
-		t_info_introduce = #{tInfoIntroduce,jdbcType=LONGVARCHAR}
-		where t_info_id = #{tInfoId,jdbcType=INTEGER}
+		t_info_img =
+		#{tInfoImg,jdbcType=VARCHAR},
+		t_info_address =
+		#{tInfoAddress,jdbcType=VARCHAR},
+		t_info_title =
+		#{tInfoTitle,jdbcType=VARCHAR},
+		t_info_introduce =
+		#{tInfoIntroduce,jdbcType=LONGVARCHAR}
+		where t_info_id =
+		#{tInfoId,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKey"
 		parameterType="com.app.model.TInfo">
 		update t_info
 		set a_id = #{aId,jdbcType=INTEGER},
 		t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
-		t_info_img = #{tInfoImg,jdbcType=VARCHAR},
-		t_info_address = #{tInfoAddress,jdbcType=VARCHAR},
-		t_info_title = #{tInfoTitle,jdbcType=VARCHAR}
-		where t_info_id = #{tInfoId,jdbcType=INTEGER}
+		t_info_img =
+		#{tInfoImg,jdbcType=VARCHAR},
+		t_info_address =
+		#{tInfoAddress,jdbcType=VARCHAR},
+		t_info_title =
+		#{tInfoTitle,jdbcType=VARCHAR}
+		where t_info_id =
+		#{tInfoId,jdbcType=INTEGER}
 	</update>
 
-	<select id="homeSelectInfo" parameterType="com.app.model.TInfo" resultMap="ResultMapWithBLOBs">
-		select avg(te.e_grade) avg_grade, t.* from t_info t left join t_evaluation
+	<select id="homeSelectInfo" parameterType="com.app.model.TInfo"
+		resultMap="ResultMapWithBLOBs">
+		select avg(te.e_grade) avg_grade, t.* from t_info t left join
+		t_evaluation
 		te
 		on t.t_info_id = te.t_info_id
 		group by t.t_info_id
-		order by avg_grade desc
+		order
+		by avg_grade desc
 		<where>
 			<if test="tInfoTitle != null">
-			and t_info_title like 
+				t.t_info_title like
 				CONCAT('%', #{tInfoTitle}, '%')
 			</if>
 			<if test="tInfoAddress != null">
-				and t_info_address like 
+				and t.t_info_address like
 				CONCAT('%', #{tInfoAddress}, '%')
+			</if>
+		</where>
+	</select>
+
+	<select id="searchInfo"
+		resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_info
+		<where>
+			<if test="kw != null">
+				t_info_title like
+				CONCAT('%', #{kw}, '%')
+				or t_info_address like
+				CONCAT('%', #{kw}, '%')
 			</if>
 		</where>
 	</select>

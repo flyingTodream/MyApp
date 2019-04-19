@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.TUserInfoMapper" >
+<mapper namespace="com.app.mapper.TUserInfoMapper" >
   <resultMap id="BaseResultMap" type="com.app.model.TUserInfo" >
     <id column="t_id" property="tId" jdbcType="INTEGER" />
     <result column="t_name" property="tName" jdbcType="VARCHAR" />
@@ -174,4 +174,19 @@
       t_regtime = #{tRegtime,jdbcType=TIMESTAMP}
     where t_id = #{tId,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByPhone" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from t_user_info
+    where t_phone = #{phone,jdbcType=VARCHAR}
+  </select>
+  
+  <update id="updateMoney">
+  	update t_user_info
+    set t_money = t_money + #{tMoney,jdbcType=DECIMAL}
+    where t_id = #{tId,jdbcType=INTEGER}
+  </update>
+  
+  
 </mapper>

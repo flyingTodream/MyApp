@@ -10,8 +10,28 @@ public class ULike implements Serializable {
     private Integer tInfoId;
 
     private String uTime;
+    
+    private String tImg;
 
-    private static final long serialVersionUID = 1L;
+    private String tTitle;
+    
+    public String gettTitle() {
+		return tTitle;
+	}
+
+	public void settTitle(String tTitle) {
+		this.tTitle = tTitle;
+	}
+
+	public String gettImg() {
+		return tImg;
+	}
+
+	public void settImg(String tImg) {
+		this.tImg = tImg;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     public Integer getuLikeId() {
         return uLikeId;

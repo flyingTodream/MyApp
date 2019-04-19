@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.windoor.techcentermgn.staffWorkPlan.mapper.OrderInfoMapper" >
+<mapper namespace="com.app.mapper.OrderInfoMapper" >
   <resultMap id="BaseResultMap" type="com.app.model.OrderInfo" >
     <id column="o_id" property="oId" jdbcType="INTEGER" />
     <result column="t_id" property="tId" jdbcType="INTEGER" />
@@ -8,7 +8,7 @@
     <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
     <result column="t_info_img" property="tInfoImg" jdbcType="VARCHAR" />
     <result column="t_info_money" property="tInfoMoney" jdbcType="DECIMAL" />
-    <result column="o_time" property="oTime" jdbcType="TIMESTAMP" />
+    <result column="o_time" property="oTime" jdbcType="VARCHAR" />
     <result column="o_number" property="oNumber" jdbcType="INTEGER" />
     <result column="o_money" property="oMoney" jdbcType="DECIMAL" />
     <result column="t_info_title" property="tInfoTitle" jdbcType="VARCHAR" />
@@ -37,11 +37,11 @@
       )
     values (#{oId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{tName,jdbcType=VARCHAR}, 
       #{tInfoId,jdbcType=INTEGER}, #{tInfoImg,jdbcType=VARCHAR}, #{tInfoMoney,jdbcType=DECIMAL}, 
-      #{oTime,jdbcType=TIMESTAMP}, #{oNumber,jdbcType=INTEGER}, #{oMoney,jdbcType=DECIMAL}, 
+      #{oTime,jdbcType=VARCHAR}, #{oNumber,jdbcType=INTEGER}, #{oMoney,jdbcType=DECIMAL}, 
       #{tInfoTitle,jdbcType=VARCHAR}, #{isEvaluation,jdbcType=VARCHAR}, #{isOrder,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.app.model.OrderInfo" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="oId" parameterType="com.app.model.OrderInfo" >
     insert into order_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="oId != null" >
@@ -101,7 +101,7 @@
         #{tInfoMoney,jdbcType=DECIMAL},
       </if>
       <if test="oTime != null" >
-        #{oTime,jdbcType=TIMESTAMP},
+        #{oTime,jdbcType=VARCHAR},
       </if>
       <if test="oNumber != null" >
         #{oNumber,jdbcType=INTEGER},
@@ -139,7 +139,7 @@
         t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
       </if>
       <if test="oTime != null" >
-        o_time = #{oTime,jdbcType=TIMESTAMP},
+        o_time = #{oTime,jdbcType=VARCHAR},
       </if>
       <if test="oNumber != null" >
         o_number = #{oNumber,jdbcType=INTEGER},
@@ -166,7 +166,7 @@
       t_info_id = #{tInfoId,jdbcType=INTEGER},
       t_info_img = #{tInfoImg,jdbcType=VARCHAR},
       t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
-      o_time = #{oTime,jdbcType=TIMESTAMP},
+      o_time = #{oTime,jdbcType=VARCHAR},
       o_number = #{oNumber,jdbcType=INTEGER},
       o_money = #{oMoney,jdbcType=DECIMAL},
       t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
@@ -174,4 +174,23 @@
       is_order = #{isOrder,jdbcType=VARCHAR}
     where o_id = #{oId,jdbcType=INTEGER}
   </update>
+  
+  <select id="getOrderList" resultMap="BaseResultMap" parameterType="com.app.model.OrderInfo">
+  	select
+  	<include refid="Base_Column_List" />
+    from order_info
+    <where>
+    	<if test="tId != null">
+    		t_id = #{tId}
+    	</if>
+    	<if test="isEvaluation != null">
+    		and is_evaluation = #{isEvaluation}
+    	</if>
+    	<if test="isOrder != null">
+    		and is_order = #{isOrder}
+    	</if>
+    </where>
+    order by o_time desc
+  </select>
+  
 </mapper>

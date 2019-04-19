@@ -1,5 +1,7 @@
 package com.app.service.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +54,12 @@ public class ULikeServiceImpl implements ULikeService {
 	public ULike selectIsLike(ULike record) {
 		// TODO Auto-generated method stub
 		return mapper.selectIsLike(record);
+	}
+
+	@Override
+	public List<ULike> getLikeList(Integer tId) {
+		// TODO Auto-generated method stub
+		return mapper.getLikeList(tId);
 	}
 
 }

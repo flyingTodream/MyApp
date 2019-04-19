@@ -2,6 +2,9 @@ package com.app.cotroller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +43,9 @@ public class LikeController {
 				entity.settId(Integer.valueOf(JwtUtils.getId(token)));
 				entity.settInfoId(Integer.valueOf(tInfoId));
 				entity.setuTime(DateUtils.dateToStringShort(new Date()));
-				uLikeServiceImpl.insertSelective(entity);
+				if (uLikeServiceImpl.selectIsLike(entity) == null) {
+					uLikeServiceImpl.insertSelective(entity);
+				}
 				// System.out.println("complated----");
 			} else {
 				json.put("IsLogin", CommonContext.NO_LOGIN);
@@ -60,7 +65,6 @@ public class LikeController {
 		json.put("code", CommonContext.HTTP_SUCCESS);
 		try {
 			if (JwtUtils.verify(token)) {
-
 				ULike entity = new ULike();
 				entity.settId(Integer.valueOf(JwtUtils.getId(token)));
 				entity.settInfoId(Integer.valueOf(tInfoId));
@@ -80,4 +84,42 @@ public class LikeController {
 		return json;
 	}
 
+	// 查询收藏列表
+	@RequestMapping("user/getLikeList")
+	public JSONObject getLikeList(HttpServletRequest req, HttpServletResponse res) {
+		JSONObject json = new JSONObject();
+		json.put("code", CommonContext.HTTP_SUCCESS);
+		String token = req.getHeader("token");
+		try {
+
+			if (JwtUtils.verify(token)) {
+				json.put("islogin", CommonContext.IS_LOGIN);
+				json.put("likeList", uLikeServiceImpl.getLikeList(Integer.valueOf(JwtUtils.getId(token))));
+
+			} else {
+				json.put("islogin", CommonContext.NO_LOGIN);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			json.put("code", CommonContext.HTTP_ERROR);
+		}
+		return json;
+	}
+
+	//删除收藏
+	@RequestMapping("user/deleteLike")
+	public JSONObject deleteLike(HttpServletRequest req, HttpServletResponse res,String uId) {
+		JSONObject json = new JSONObject();
+		json.put("code", CommonContext.HTTP_SUCCESS);
+		try {
+			uLikeServiceImpl.deleteByPrimaryKey(Integer.valueOf(uId));
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			json.put("code", CommonContext.HTTP_ERROR);
+		}
+		return json;
+	}
 }

@@ -37,7 +37,7 @@ logging:
   level: 
     java.sql: debug
     com.apache.ibatis: debug
-    com.fly.mapper: debug
+    com.app.mapper: debug
 pagehelper:
     helperDialect: mysql
     reasonable: true
