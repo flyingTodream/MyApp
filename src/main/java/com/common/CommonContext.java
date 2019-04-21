@@ -61,4 +61,10 @@ public class CommonContext {
 	 */
 	public static String USER_TYPE_ADMIN = "1";
 	
+	/**
+	 * 身份--超级管理员
+	 */
+	public static String USER_TYPE_SUPER_ADMIN = "2";
+
+	
 }

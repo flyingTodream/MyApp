@@ -20,4 +20,18 @@ public class ImgServiceImpl implements ImgService {
 		return mapper.selImg(tId);
 	}
 
+
+	@Override
+	public int deleteByPrimaryKey(Integer imgId) {
+		// TODO Auto-generated method stub
+		return mapper.deleteByPrimaryKey(imgId);
+	}
+
+
+	@Override
+	public int insertSelective(Img record) {
+		// TODO Auto-generated method stub
+		return mapper.insertSelective(record);
+	}
+
 }

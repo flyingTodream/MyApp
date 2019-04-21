@@ -160,23 +160,23 @@
 
 	<select id="homeSelectInfo" parameterType="com.app.model.TInfo"
 		resultMap="ResultMapWithBLOBs">
-		select avg(te.e_grade) avg_grade, t.* from t_info t left join
-		t_evaluation
-		te
+		select avg(te.e_grade) avg_grade, t.* 
+		from t_info t 
+		left join
+		t_evaluation te
 		on t.t_info_id = te.t_info_id
-		group by t.t_info_id
-		order
-		by avg_grade desc
 		<where>
 			<if test="tInfoTitle != null">
 				t.t_info_title like
 				CONCAT('%', #{tInfoTitle}, '%')
 			</if>
-			<if test="tInfoAddress != null">
-				and t.t_info_address like
-				CONCAT('%', #{tInfoAddress}, '%')
+			<if test="aId != null">
+				and t.a_id = #{aId,jdbcType=INTEGER}
 			</if>
 		</where>
+		group by t.t_info_id 
+		order
+		by avg_grade desc
 	</select>
 
 	<select id="searchInfo"

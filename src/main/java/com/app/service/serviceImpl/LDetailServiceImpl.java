@@ -21,4 +21,22 @@ public class LDetailServiceImpl implements LDetailService {
 		return mapper.getDetailList(lId);
 	}
 
+	@Override
+	public int deleteByPrimaryKey(Integer detailId) {
+		// TODO Auto-generated method stub
+		return mapper.deleteByPrimaryKey(detailId);
+	}
+
+	@Override
+	public int insertSelective(lDetail record) {
+		// TODO Auto-generated method stub
+		return mapper.insertSelective(record);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(lDetail record) {
+		// TODO Auto-generated method stub
+		return mapper.updateByPrimaryKeySelective(record);
+	}
+
 }

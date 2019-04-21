@@ -32,7 +32,13 @@ eureka:
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.app.model
-
+resources:
+  static-locations: classpath:static/,file:static/
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-exclude: static/**
 logging:
   level: 
     java.sql: debug
@@ -43,3 +49,5 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+##自定义值
+url: "http://flytodream.free.idcfengye.com"

@@ -2,7 +2,6 @@ package com.app.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class TUserInfo implements Serializable {
     private Integer tId;

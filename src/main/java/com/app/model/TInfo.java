@@ -1,13 +1,14 @@
 package com.app.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class TInfo implements Serializable {
+public class TInfo extends BaseModel implements Serializable {
     private Integer tInfoId;
 
     private Integer aId;
 
-    private Long tInfoMoney;
+    private BigDecimal tInfoMoney;
 
     private String tInfoImg;
 
@@ -35,11 +36,11 @@ public class TInfo implements Serializable {
         this.aId = aId;
     }
 
-    public Long gettInfoMoney() {
+    public BigDecimal gettInfoMoney() {
         return tInfoMoney;
     }
 
-    public void settInfoMoney(Long tInfoMoney) {
+    public void settInfoMoney(BigDecimal tInfoMoney) {
         this.tInfoMoney = tInfoMoney;
     }
 

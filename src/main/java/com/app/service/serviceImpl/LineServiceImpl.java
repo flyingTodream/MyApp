@@ -21,4 +21,22 @@ public class LineServiceImpl implements LineService {
 		return mapper.getLineList(tId);
 	}
 
+	@Override
+	public int deleteByPrimaryKey(Integer lId) {
+		// TODO Auto-generated method stub
+		return mapper.deleteByPrimaryKey(lId);
+	}
+
+	@Override
+	public int insertSelective(LInfo record) {
+		// TODO Auto-generated method stub
+		return mapper.insertSelective(record);
+	}
+
+	@Override
+	public LInfo selectByPrimaryKey(Integer lId) {
+		// TODO Auto-generated method stub
+		return mapper.selectByPrimaryKey(lId);
+	}
+
 }

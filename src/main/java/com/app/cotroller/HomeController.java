@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.app.model.TInfo;
 import com.app.service.ImgService;
 import com.app.service.LDetailService;
 import com.app.service.LineService;
