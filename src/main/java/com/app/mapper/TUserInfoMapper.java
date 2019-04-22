@@ -1,6 +1,7 @@
 package com.app.mapper;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.app.model.TUserInfo;
 
@@ -20,4 +21,6 @@ public interface TUserInfoMapper {
     TUserInfo selectByPhone(String phone);
     
     int updateMoney(BigDecimal tMoney,Integer tId);
+    
+    List<TUserInfo> getUserList(TUserInfo record);
 }

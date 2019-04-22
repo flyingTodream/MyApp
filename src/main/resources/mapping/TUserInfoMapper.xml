@@ -1,192 +1,235 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.app.mapper.TUserInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.app.model.TUserInfo" >
-    <id column="t_id" property="tId" jdbcType="INTEGER" />
-    <result column="t_name" property="tName" jdbcType="VARCHAR" />
-    <result column="t_img" property="tImg" jdbcType="VARCHAR" />
-    <result column="t_pass" property="tPass" jdbcType="VARCHAR" />
-    <result column="t_email" property="tEmail" jdbcType="VARCHAR" />
-    <result column="t_phone" property="tPhone" jdbcType="VARCHAR" />
-    <result column="t_question" property="tQuestion" jdbcType="VARCHAR" />
-    <result column="t_answer" property="tAnswer" jdbcType="VARCHAR" />
-    <result column="t_address" property="tAddress" jdbcType="VARCHAR" />
-    <result column="t_money" property="tMoney" jdbcType="DECIMAL" />
-    <result column="t_payword" property="tPayword" jdbcType="VARCHAR" />
-    <result column="t_regtime" property="tRegtime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    t_id, t_name, t_img, t_pass, t_email, t_phone, t_question, t_answer, t_address, t_money, 
-    t_payword, t_regtime
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_user_info
-    where t_id = #{tId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_user_info
-    where t_id = #{tId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.app.model.TUserInfo" >
-    insert into t_user_info (t_id, t_name, t_img, 
-      t_pass, t_email, t_phone, 
-      t_question, t_answer, t_address, 
-      t_money, t_payword, t_regtime
-      )
-    values (#{tId,jdbcType=INTEGER}, #{tName,jdbcType=VARCHAR}, #{tImg,jdbcType=VARCHAR}, 
-      #{tPass,jdbcType=VARCHAR}, #{tEmail,jdbcType=VARCHAR}, #{tPhone,jdbcType=VARCHAR}, 
-      #{tQuestion,jdbcType=VARCHAR}, #{tAnswer,jdbcType=VARCHAR}, #{tAddress,jdbcType=VARCHAR}, 
-      #{tMoney,jdbcType=DECIMAL}, #{tPayword,jdbcType=VARCHAR}, #{tRegtime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.app.model.TUserInfo" >
-    insert into t_user_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="tId != null" >
-        t_id,
-      </if>
-      <if test="tName != null" >
-        t_name,
-      </if>
-      <if test="tImg != null" >
-        t_img,
-      </if>
-      <if test="tPass != null" >
-        t_pass,
-      </if>
-      <if test="tEmail != null" >
-        t_email,
-      </if>
-      <if test="tPhone != null" >
-        t_phone,
-      </if>
-      <if test="tQuestion != null" >
-        t_question,
-      </if>
-      <if test="tAnswer != null" >
-        t_answer,
-      </if>
-      <if test="tAddress != null" >
-        t_address,
-      </if>
-      <if test="tMoney != null" >
-        t_money,
-      </if>
-      <if test="tPayword != null" >
-        t_payword,
-      </if>
-      <if test="tRegtime != null" >
-        t_regtime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="tId != null" >
-        #{tId,jdbcType=INTEGER},
-      </if>
-      <if test="tName != null" >
-        #{tName,jdbcType=VARCHAR},
-      </if>
-      <if test="tImg != null" >
-        #{tImg,jdbcType=VARCHAR},
-      </if>
-      <if test="tPass != null" >
-        #{tPass,jdbcType=VARCHAR},
-      </if>
-      <if test="tEmail != null" >
-        #{tEmail,jdbcType=VARCHAR},
-      </if>
-      <if test="tPhone != null" >
-        #{tPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="tQuestion != null" >
-        #{tQuestion,jdbcType=VARCHAR},
-      </if>
-      <if test="tAnswer != null" >
-        #{tAnswer,jdbcType=VARCHAR},
-      </if>
-      <if test="tAddress != null" >
-        #{tAddress,jdbcType=VARCHAR},
-      </if>
-      <if test="tMoney != null" >
-        #{tMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="tPayword != null" >
-        #{tPayword,jdbcType=VARCHAR},
-      </if>
-      <if test="tRegtime != null" >
-        #{tRegtime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.TUserInfo" >
-    update t_user_info
-    <set >
-      <if test="tName != null" >
-        t_name = #{tName,jdbcType=VARCHAR},
-      </if>
-      <if test="tImg != null" >
-        t_img = #{tImg,jdbcType=VARCHAR},
-      </if>
-      <if test="tPass != null" >
-        t_pass = #{tPass,jdbcType=VARCHAR},
-      </if>
-      <if test="tEmail != null" >
-        t_email = #{tEmail,jdbcType=VARCHAR},
-      </if>
-      <if test="tPhone != null" >
-        t_phone = #{tPhone,jdbcType=VARCHAR},
-      </if>
-      <if test="tQuestion != null" >
-        t_question = #{tQuestion,jdbcType=VARCHAR},
-      </if>
-      <if test="tAnswer != null" >
-        t_answer = #{tAnswer,jdbcType=VARCHAR},
-      </if>
-      <if test="tAddress != null" >
-        t_address = #{tAddress,jdbcType=VARCHAR},
-      </if>
-      <if test="tMoney != null" >
-        t_money = #{tMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="tPayword != null" >
-        t_payword = #{tPayword,jdbcType=VARCHAR},
-      </if>
-      <if test="tRegtime != null" >
-        t_regtime = #{tRegtime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where t_id = #{tId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.app.model.TUserInfo" >
-    update t_user_info
-    set t_name = #{tName,jdbcType=VARCHAR},
-      t_img = #{tImg,jdbcType=VARCHAR},
-      t_pass = #{tPass,jdbcType=VARCHAR},
-      t_email = #{tEmail,jdbcType=VARCHAR},
-      t_phone = #{tPhone,jdbcType=VARCHAR},
-      t_question = #{tQuestion,jdbcType=VARCHAR},
-      t_answer = #{tAnswer,jdbcType=VARCHAR},
-      t_address = #{tAddress,jdbcType=VARCHAR},
-      t_money = #{tMoney,jdbcType=DECIMAL},
-      t_payword = #{tPayword,jdbcType=VARCHAR},
-      t_regtime = #{tRegtime,jdbcType=TIMESTAMP}
-    where t_id = #{tId,jdbcType=INTEGER}
-  </update>
-  
-  <select id="selectByPhone" resultMap="BaseResultMap">
-   select 
-    <include refid="Base_Column_List" />
-    from t_user_info
-    where t_phone = #{phone,jdbcType=VARCHAR}
-  </select>
-  
-  <update id="updateMoney">
-  	update t_user_info
-    set t_money = t_money + #{tMoney,jdbcType=DECIMAL}
-    where t_id = #{tId,jdbcType=INTEGER}
-  </update>
-  
-  
+<mapper namespace="com.app.mapper.TUserInfoMapper">
+	<resultMap id="BaseResultMap" type="com.app.model.TUserInfo">
+		<id column="t_id" property="tId" jdbcType="INTEGER" />
+		<result column="t_name" property="tName" jdbcType="VARCHAR" />
+		<result column="t_img" property="tImg" jdbcType="VARCHAR" />
+		<result column="t_pass" property="tPass" jdbcType="VARCHAR" />
+		<result column="t_email" property="tEmail" jdbcType="VARCHAR" />
+		<result column="t_phone" property="tPhone" jdbcType="VARCHAR" />
+		<result column="t_question" property="tQuestion"
+			jdbcType="VARCHAR" />
+		<result column="t_answer" property="tAnswer" jdbcType="VARCHAR" />
+		<result column="t_address" property="tAddress"
+			jdbcType="VARCHAR" />
+		<result column="t_money" property="tMoney" jdbcType="DECIMAL" />
+		<result column="t_payword" property="tPayword"
+			jdbcType="VARCHAR" />
+		<result column="t_regtime" property="tRegtime"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		t_id, t_name, t_img, t_pass, t_email, t_phone, t_question,
+		t_answer,
+		t_address, t_money,
+		t_payword, t_regtime
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_user_info
+		where t_id = #{tId,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from t_user_info
+		where t_id =
+		#{tId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.app.model.TUserInfo">
+		insert into t_user_info (t_id,
+		t_name, t_img,
+		t_pass, t_email, t_phone,
+		t_question, t_answer,
+		t_address,
+		t_money, t_payword, t_regtime
+		)
+		values
+		(#{tId,jdbcType=INTEGER}, #{tName,jdbcType=VARCHAR},
+		#{tImg,jdbcType=VARCHAR},
+		#{tPass,jdbcType=VARCHAR},
+		#{tEmail,jdbcType=VARCHAR}, #{tPhone,jdbcType=VARCHAR},
+		#{tQuestion,jdbcType=VARCHAR}, #{tAnswer,jdbcType=VARCHAR},
+		#{tAddress,jdbcType=VARCHAR},
+		#{tMoney,jdbcType=DECIMAL},
+		#{tPayword,jdbcType=VARCHAR}, #{tRegtime,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="tId"
+		parameterType="com.app.model.TUserInfo">
+		insert into t_user_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="tId != null">
+				t_id,
+			</if>
+			<if test="tName != null">
+				t_name,
+			</if>
+			<if test="tImg != null">
+				t_img,
+			</if>
+			<if test="tPass != null">
+				t_pass,
+			</if>
+			<if test="tEmail != null">
+				t_email,
+			</if>
+			<if test="tPhone != null">
+				t_phone,
+			</if>
+			<if test="tQuestion != null">
+				t_question,
+			</if>
+			<if test="tAnswer != null">
+				t_answer,
+			</if>
+			<if test="tAddress != null">
+				t_address,
+			</if>
+			<if test="tMoney != null">
+				t_money,
+			</if>
+			<if test="tPayword != null">
+				t_payword,
+			</if>
+			<if test="tRegtime != null">
+				t_regtime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="tId != null">
+				#{tId,jdbcType=INTEGER},
+			</if>
+			<if test="tName != null">
+				#{tName,jdbcType=VARCHAR},
+			</if>
+			<if test="tImg != null">
+				#{tImg,jdbcType=VARCHAR},
+			</if>
+			<if test="tPass != null">
+				#{tPass,jdbcType=VARCHAR},
+			</if>
+			<if test="tEmail != null">
+				#{tEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="tPhone != null">
+				#{tPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="tQuestion != null">
+				#{tQuestion,jdbcType=VARCHAR},
+			</if>
+			<if test="tAnswer != null">
+				#{tAnswer,jdbcType=VARCHAR},
+			</if>
+			<if test="tAddress != null">
+				#{tAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="tMoney != null">
+				#{tMoney,jdbcType=DECIMAL},
+			</if>
+			<if test="tPayword != null">
+				#{tPayword,jdbcType=VARCHAR},
+			</if>
+			<if test="tRegtime != null">
+				#{tRegtime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.app.model.TUserInfo">
+		update t_user_info
+		<set>
+			<if test="tName != null">
+				t_name = #{tName,jdbcType=VARCHAR},
+			</if>
+			<if test="tImg != null">
+				t_img = #{tImg,jdbcType=VARCHAR},
+			</if>
+			<if test="tPass != null">
+				t_pass = #{tPass,jdbcType=VARCHAR},
+			</if>
+			<if test="tEmail != null">
+				t_email = #{tEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="tPhone != null">
+				t_phone = #{tPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="tQuestion != null">
+				t_question = #{tQuestion,jdbcType=VARCHAR},
+			</if>
+			<if test="tAnswer != null">
+				t_answer = #{tAnswer,jdbcType=VARCHAR},
+			</if>
+			<if test="tAddress != null">
+				t_address = #{tAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="tMoney != null">
+				t_money = #{tMoney,jdbcType=DECIMAL},
+			</if>
+			<if test="tPayword != null">
+				t_payword = #{tPayword,jdbcType=VARCHAR},
+			</if>
+			<if test="tRegtime != null">
+				t_regtime = #{tRegtime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where t_id = #{tId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.app.model.TUserInfo">
+		update t_user_info
+		set t_name =
+		#{tName,jdbcType=VARCHAR},
+		t_img = #{tImg,jdbcType=VARCHAR},
+		t_pass =
+		#{tPass,jdbcType=VARCHAR},
+		t_email = #{tEmail,jdbcType=VARCHAR},
+		t_phone = #{tPhone,jdbcType=VARCHAR},
+		t_question =
+		#{tQuestion,jdbcType=VARCHAR},
+		t_answer = #{tAnswer,jdbcType=VARCHAR},
+		t_address = #{tAddress,jdbcType=VARCHAR},
+		t_money =
+		#{tMoney,jdbcType=DECIMAL},
+		t_payword = #{tPayword,jdbcType=VARCHAR},
+		t_regtime = #{tRegtime,jdbcType=VARCHAR}
+		where t_id =
+		#{tId,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByPhone" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_user_info
+		where t_phone = #{phone,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateMoney">
+		update t_user_info
+		set t_money = t_money +
+		#{tMoney,jdbcType=DECIMAL}
+		where t_id = #{tId,jdbcType=INTEGER}
+	</update>
+
+	<select id="getUserList" resultMap="BaseResultMap"
+		parameterType="com.app.model.TUserInfo">
+		select
+		<include refid="Base_Column_List" />
+		from t_user_info
+		<where>
+			<if test="tName != null and tName != ''">
+				t_name like CONCAT('%', #{tName,jdbcType=VARCHAR}, '%')
+			</if>
+			<if test="tPhone != null and tPhone != ''">
+			and	t_phone like CONCAT('%', #{tPhone,jdbcType=VARCHAR}, '%')
+			</if>
+			<if test="tAnswer != null  and tAnswer != ''">
+			and	t_answer = #{tAnswer,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+
 </mapper>

@@ -1,0 +1,602 @@
+[
+    {
+        "id": "2",
+        "text": "工作计划管理",
+        "pid": "1",
+        "iconCls": "",
+        "checked": false,
+        "attributes": {
+            "menu": {
+                "id": 2,
+                "menuType": 0,
+                "menuPid": 1,
+                "menuUrl": "",
+                "menuName": "工作计划管理"
+            }
+        },
+        "children": [
+            {
+                "id": "3",
+                "text": "月度工作计划制定",
+                "pid": "2",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 3,
+                        "menuType": 0,
+                        "menuPid": 2,
+                        "menuUrl": "workplan/makeworkplan",
+                        "menuName": "月度工作计划制定"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "4",
+                "text": "月度工作计划审核",
+                "pid": "2",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 4,
+                        "menuType": 0,
+                        "menuPid": 2,
+                        "menuUrl": "workplan/workplanverify",
+                        "menuName": "月度工作计划审核"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "5",
+                "text": "月度工作计划总结",
+                "pid": "2",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 5,
+                        "menuType": 0,
+                        "menuPid": 2,
+                        "menuUrl": "workplan/workplansummary",
+                        "menuName": "月度工作计划总结"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "6",
+                "text": "月度工作计划考评",
+                "pid": "2",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 6,
+                        "menuType": 0,
+                        "menuPid": 2,
+                        "menuUrl": "workplan/workplanreview",
+                        "menuName": "月度工作计划考评"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "31",
+                "text": "月度考评汇总",
+                "pid": "2",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 31,
+                        "menuType": 0,
+                        "menuPid": 2,
+                        "menuUrl": "workplan/evaluationSummary",
+                        "menuName": "月度考评汇总"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            }
+        ],
+        "state": "open"
+    },
+    {
+        "id": "7",
+        "text": "成果库管理",
+        "pid": "1",
+        "iconCls": "",
+        "checked": false,
+        "attributes": {
+            "menu": {
+                "id": 7,
+                "menuType": 0,
+                "menuPid": 1,
+                "menuUrl": "",
+                "menuName": "成果库管理"
+            }
+        },
+        "children": [
+            {
+                "id": "8",
+                "text": "专利管理",
+                "pid": "7",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 8,
+                        "menuType": 0,
+                        "menuPid": 7,
+                        "menuUrl": "error",
+                        "menuName": "专利管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "9",
+                "text": "论文管理",
+                "pid": "7",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 9,
+                        "menuType": 0,
+                        "menuPid": 7,
+                        "menuUrl": "",
+                        "menuName": "论文管理"
+                    }
+                },
+                "children": [
+                    {
+                        "id": "10",
+                        "text": "论文登记管理",
+                        "pid": "9",
+                        "iconCls": "",
+                        "checked": false,
+                        "attributes": {
+                            "menu": {
+                                "id": 10,
+                                "menuType": 0,
+                                "menuPid": 9,
+                                "menuUrl": "thesis/thesisinfo",
+                                "menuName": "论文登记管理"
+                            }
+                        },
+                        "children": [],
+                        "state": "open"
+                    },
+                    {
+                        "id": "11",
+                        "text": "论文登记审核",
+                        "pid": "9",
+                        "iconCls": "",
+                        "checked": false,
+                        "attributes": {
+                            "menu": {
+                                "id": 11,
+                                "menuType": 0,
+                                "menuPid": 9,
+                                "menuUrl": "thesisAudit/thesisAuditList",
+                                "menuName": "论文登记审核"
+                            }
+                        },
+                        "children": [],
+                        "state": "open"
+                    },
+                    {
+                        "id": "12",
+                        "text": "论文发表管理",
+                        "pid": "9",
+                        "iconCls": "",
+                        "checked": false,
+                        "attributes": {
+                            "menu": {
+                                "id": 12,
+                                "menuType": 0,
+                                "menuPid": 9,
+                                "menuUrl": "error",
+                                "menuName": "论文发表管理"
+                            }
+                        },
+                        "children": [],
+                        "state": "open"
+                    },
+                    {
+                        "id": "13",
+                        "text": "论文发表审核",
+                        "pid": "9",
+                        "iconCls": "",
+                        "checked": false,
+                        "attributes": {
+                            "menu": {
+                                "id": 13,
+                                "menuType": 0,
+                                "menuPid": 9,
+                                "menuUrl": "error",
+                                "menuName": "论文发表审核"
+                            }
+                        },
+                        "children": [],
+                        "state": "open"
+                    },
+                    {
+                        "id": "32",
+                        "text": "论文版面费申请",
+                        "pid": "9",
+                        "iconCls": "",
+                        "checked": false,
+                        "attributes": {
+                            "menu": {
+                                "id": 32,
+                                "menuType": 0,
+                                "menuPid": 9,
+                                "menuUrl": "thesis/pageChargesListView",
+                                "menuName": "论文版面费申请"
+                            }
+                        },
+                        "children": [],
+                        "state": "open"
+                    },
+                    {
+                        "id": "33",
+                        "text": "论文版面费审核",
+                        "pid": "9",
+                        "iconCls": "",
+                        "checked": false,
+                        "attributes": {
+                            "menu": {
+                                "id": 33,
+                                "menuType": 0,
+                                "menuPid": 9,
+                                "menuUrl": "thesis/pageChargesAuditList",
+                                "menuName": "论文版面费审核"
+                            }
+                        },
+                        "children": [],
+                        "state": "open"
+                    }
+                ],
+                "state": "open"
+            },
+            {
+                "id": "14",
+                "text": "奖励管理",
+                "pid": "7",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 14,
+                        "menuType": 0,
+                        "menuPid": 7,
+                        "menuUrl": "error",
+                        "menuName": "奖励管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "15",
+                "text": "标准管理",
+                "pid": "7",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 15,
+                        "menuType": 0,
+                        "menuPid": 7,
+                        "menuUrl": "error",
+                        "menuName": "标准管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            }
+        ],
+        "state": "open"
+    },
+    {
+        "id": "16",
+        "text": "科研项目管理",
+        "pid": "1",
+        "iconCls": "",
+        "checked": false,
+        "attributes": {
+            "menu": {
+                "id": 16,
+                "menuType": 0,
+                "menuPid": 1,
+                "menuUrl": "",
+                "menuName": "科研项目管理"
+            }
+        },
+        "children": [
+            {
+                "id": "17",
+                "text": "项目申报",
+                "pid": "16",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 17,
+                        "menuType": 0,
+                        "menuPid": 16,
+                        "menuUrl": "error",
+                        "menuName": "项目申报"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "18",
+                "text": "项目立项",
+                "pid": "16",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 18,
+                        "menuType": 0,
+                        "menuPid": 16,
+                        "menuUrl": "error",
+                        "menuName": "项目立项"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "19",
+                "text": "项目实施",
+                "pid": "16",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 19,
+                        "menuType": 0,
+                        "menuPid": 16,
+                        "menuUrl": "error",
+                        "menuName": "项目实施"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "20",
+                "text": "项目验收",
+                "pid": "16",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 20,
+                        "menuType": 0,
+                        "menuPid": 16,
+                        "menuUrl": "error",
+                        "menuName": "项目验收"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            }
+        ],
+        "state": "open"
+    },
+    {
+        "id": "21",
+        "text": "合同管理",
+        "pid": "1",
+        "iconCls": "",
+        "checked": false,
+        "attributes": {
+            "menu": {
+                "id": 21,
+                "menuType": 0,
+                "menuPid": 1,
+                "menuUrl": "",
+                "menuName": "合同管理"
+            }
+        },
+        "children": [
+            {
+                "id": "22",
+                "text": "合同制定",
+                "pid": "21",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 22,
+                        "menuType": 0,
+                        "menuPid": 21,
+                        "menuUrl": "error",
+                        "menuName": "合同制定"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "23",
+                "text": "合同评审",
+                "pid": "21",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 23,
+                        "menuType": 0,
+                        "menuPid": 21,
+                        "menuUrl": "error",
+                        "menuName": "合同评审"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "24",
+                "text": "合同验收",
+                "pid": "21",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 24,
+                        "menuType": 0,
+                        "menuPid": 21,
+                        "menuUrl": "error",
+                        "menuName": "合同验收"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            }
+        ],
+        "state": "open"
+    },
+    {
+        "id": "25",
+        "text": "系统管理",
+        "pid": "1",
+        "iconCls": "",
+        "checked": false,
+        "attributes": {
+            "menu": {
+                "id": 25,
+                "menuType": 0,
+                "menuPid": 1,
+                "menuUrl": "",
+                "menuName": "系统管理"
+            }
+        },
+        "children": [
+            {
+                "id": "26",
+                "text": "人员管理",
+                "pid": "25",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 26,
+                        "menuType": 0,
+                        "menuPid": 25,
+                        "menuUrl": "system/user",
+                        "menuName": "人员管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "27",
+                "text": "部门管理",
+                "pid": "25",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 27,
+                        "menuType": 0,
+                        "menuPid": 25,
+                        "menuUrl": "system/department",
+                        "menuName": "部门管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "28",
+                "text": "菜单管理",
+                "pid": "25",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 28,
+                        "menuType": 0,
+                        "menuPid": 25,
+                        "menuUrl": "system/menumgnhome",
+                        "menuName": "菜单管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "29",
+                "text": "角色管理",
+                "pid": "25",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 29,
+                        "menuType": 0,
+                        "menuPid": 25,
+                        "menuUrl": "system/rolemgnhome",
+                        "menuName": "角色管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "30",
+                "text": "用户角色",
+                "pid": "25",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 30,
+                        "menuType": null,
+                        "menuPid": 25,
+                        "menuUrl": "system/userrole",
+                        "menuName": "用户角色"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            },
+            {
+                "id": "34",
+                "text": "流程管理",
+                "pid": "25",
+                "iconCls": "",
+                "checked": false,
+                "attributes": {
+                    "menu": {
+                        "id": 34,
+                        "menuType": 0,
+                        "menuPid": 25,
+                        "menuUrl": "system/flowhome",
+                        "menuName": "流程管理"
+                    }
+                },
+                "children": [],
+                "state": "open"
+            }
+        ],
+        "state": "open"
+    }
+]

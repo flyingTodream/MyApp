@@ -20,8 +20,7 @@
 			jdbcType="VARCHAR" />
 		<result column="t_info_money" property="tInfoMoney"
 			jdbcType="DECIMAL" />
-		<result column="t_img" property="tImg"
-			jdbcType="VARCHAR" />
+		<result column="t_img" property="tImg" jdbcType="VARCHAR" />
 	</resultMap>
 	<resultMap id="ResultMapWithBLOBs"
 		type="com.app.model.TEvaluation" extends="BaseResultMap">
@@ -245,8 +244,8 @@
 
 	<select id="getRateListByTId" resultMap="ResultMapWithBLOBs"
 		parameterType="com.app.model.TEvaluation">
-		select t.*,tu.* from t_evaluation t 
-		left join t_user_info tu on 
+		select t.*,tu.* from t_evaluation t
+		left join t_user_info tu on
 		t.t_id = tu.t_id
 		<where>
 			<if test="tInfoId != null">
@@ -263,4 +262,20 @@
 		select avg(e_grade) from
 		t_evaluation where t_info_id = #{tInfoId}
 	</select>
+
+	<select id="getRateListAdmin" resultMap="ResultMapWithBLOBs">
+		select te.* from t_evaluation te
+		left join t_info t on
+		te.t_info_id = t.t_info_id
+		<where>
+			<if test="aId != null">
+				and t.a_id = #{aId}
+			</if>
+			<if test="tInfoTitle != null and tInfoTitle != ''">
+				and te.t_info_title like
+				CONCAT('%', #{tInfoTitle}, '%')
+			</if>
+		</where>
+	</select>
+
 </mapper>

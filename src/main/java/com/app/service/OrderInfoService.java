@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import com.app.model.OrderInfo;
 
 public interface OrderInfoService {
@@ -18,4 +19,8 @@ public interface OrderInfoService {
     int updateByPrimaryKey(OrderInfo record);
     
     List<OrderInfo> getOrderList(OrderInfo record);
+    
+    JSONObject getOrderAdminList(Integer aId,Integer page);
+    
+    List<OrderInfo> getOrderSum();
 }

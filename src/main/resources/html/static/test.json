@@ -1,0 +1,124 @@
+[
+    {
+        "id": 11,
+        "pid": 0,
+        "departmentName": "湖北中烟",
+        "departmentDirector": "11",
+        "directorName": "",
+        "directUnderVp": 11,
+        "departmentDesc": "湖北中烟",
+        "children": [
+            {
+                "id": 14,
+                "pid": 11,
+                "departmentName": "技术中心",
+                "departmentDirector": "111",
+                "directorName": "",
+                "directUnderVp": 11,
+                "departmentDesc": "技术中心",
+                "children": [
+                    {
+                        "id": 13,
+                        "pid": 14,
+                        "departmentName": "科技管理室",
+                        "departmentDirector": "11003987",
+                        "directorName": "陈硕",
+                        "directUnderVp": 0,
+                        "departmentDesc": "科技管理室",
+                        "children": []
+                    },
+                    {
+                        "id": 15,
+                        "pid": 14,
+                        "departmentName": "办公室",
+                        "departmentDirector": "11003987",
+                        "directorName": "陈硕",
+                        "directUnderVp": 0,
+                        "departmentDesc": "办公室",
+                        "children": []
+                    },
+                    {
+                        "id": 17,
+                        "pid": 14,
+                        "departmentName": "产品研究室",
+                        "departmentDirector": "10100004",
+                        "directorName": "毛耀",
+                        "directUnderVp": 11,
+                        "departmentDesc": "产品研究室",
+                        "children": []
+                    },
+                    {
+                        "id": 18,
+                        "pid": 14,
+                        "departmentName": "原料研究室",
+                        "departmentDirector": "10100004",
+                        "directorName": "毛耀",
+                        "directUnderVp": 11,
+                        "departmentDesc": "原料研究室",
+                        "children": []
+                    },
+                    {
+                        "id": 19,
+                        "pid": 14,
+                        "departmentName": "香精香料研究室",
+                        "departmentDirector": "10100004",
+                        "directorName": "毛耀",
+                        "directUnderVp": 11,
+                        "departmentDesc": "香精香料研究室",
+                        "children": []
+                    },
+                    {
+                        "id": 20,
+                        "pid": 14,
+                        "departmentName": "标准研究室",
+                        "departmentDirector": "11002357",
+                        "directorName": "王建新",
+                        "directUnderVp": 0,
+                        "departmentDesc": "标准研究室",
+                        "children": []
+                    },
+                    {
+                        "id": 21,
+                        "pid": 14,
+                        "departmentName": "工艺研究室",
+                        "departmentDirector": "11002357",
+                        "directorName": "王建新",
+                        "directUnderVp": 0,
+                        "departmentDesc": "工艺研究室",
+                        "children": []
+                    },
+                    {
+                        "id": 22,
+                        "pid": 14,
+                        "departmentName": "博士后工作站",
+                        "departmentDirector": "",
+                        "directorName": "",
+                        "directUnderVp": 1,
+                        "departmentDesc": "博士后工作站",
+                        "children": []
+                    },
+                    {
+                        "id": 26,
+                        "pid": 14,
+                        "departmentName": "基础研究室",
+                        "departmentDirector": "11003987",
+                        "directorName": "陈硕",
+                        "directUnderVp": 0,
+                        "departmentDesc": "基础研究室",
+                        "children": []
+                    },
+                    {
+                        "id": 27,
+                        "pid": 14,
+                        "departmentName": "材料研究室",
+                        "departmentDirector": "11002357",
+                        "directorName": "王建新",
+                        "directUnderVp": 0,
+                        "departmentDesc": "材料研究室",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

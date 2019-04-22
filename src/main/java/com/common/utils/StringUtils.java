@@ -18,22 +18,22 @@ public class StringUtils {
     }
     
 	/**
-	 * ¸ù¾ÝÊ±¼äÉú³ÉÎ¨Ò»id
+	 * ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¨Ò»id
 	 * @return
 	 */
 	public static String getId(){  
         String id=""; 
-        //»ñÈ¡µ±Ç°Ê±¼ä´Á		
+        //ï¿½ï¿½È¡ï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½		
         SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddHHmm");  
         String temp = sf.format(new Date());  
-	       //»ñÈ¡6Î»Ëæ»úÊý
+	       //ï¿½ï¿½È¡6Î»ï¿½ï¿½ï¿½ï¿½ï¿½
         int random=(int) ((Math.random()+1)*100000);  
         id=temp+random;  
         return id; 
 	}
     
 	 public static void main(String[] args) {
-		System.out.println(UUID());
+		System.out.println(isEmpty(null));
 	}
 	 
 	 

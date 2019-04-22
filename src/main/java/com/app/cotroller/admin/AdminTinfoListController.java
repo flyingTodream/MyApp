@@ -161,10 +161,12 @@ public class AdminTinfoListController {
 		String tInfoTitle = map.get("tInfoTitle").toString();
 		String tInfoMoney = map.get("tInfoMoney").toString();
 		String tInfoIntroduce = map.get("tInfoIntroduce").toString();
+		String tInfoAddress = map.get("tInfoAddress").toString();
 		TInfo entity = new TInfo();
 		entity.settInfoId(Integer.valueOf(tInfoId));
 		entity.settInfoTitle(tInfoTitle);
 		entity.settInfoIntroduce(tInfoIntroduce);
+		entity.settInfoAddress(tInfoAddress);
 		entity.settInfoMoney(new BigDecimal(tInfoMoney));
 		tInfoServiceImpl.updateByPrimaryKeySelective(entity);
 	}
@@ -176,7 +178,7 @@ public class AdminTinfoListController {
 	public void addImgList(MultipartHttpServletRequest multiReq,HttpServletRequest req) throws Exception {
 		System.out.println(ResourceUtils.getURL("classpath:").getPath()+"-------");
 		
-		System.out.println(req.getParameter("tId"));
+		//System.out.println(req.getParameter("tId"));
 		//String path = req.getServletContext().getRealPath("");
 		String filePath = "static/img/";
 		String fileName = FileUpload.upload(multiReq, ResourceUtils.getURL("classpath:").getPath()+filePath);

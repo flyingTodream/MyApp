@@ -2,6 +2,8 @@ package com.app.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.app.model.OrderInfo;
 
 public interface OrderInfoMapper {
@@ -18,4 +20,8 @@ public interface OrderInfoMapper {
     int updateByPrimaryKey(OrderInfo record);
     
     List<OrderInfo> getOrderList(OrderInfo record);
+    
+    List<OrderInfo> getOrderAdminList(@Param("aId") Integer aId);
+    
+    List<OrderInfo> getOrderSum();
 }

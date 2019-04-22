@@ -1,7 +1,7 @@
 package com.app.service;
 
 import java.math.BigDecimal;
-
+import com.alibaba.fastjson.JSONObject;
 import com.app.model.TUserInfo;
 
 public interface TUserInfoService {
@@ -16,5 +16,7 @@ public interface TUserInfoService {
     
     int insertSelective(TUserInfo record);
 
+    JSONObject getUserList(TUserInfo record);
     
+    int deleteByPrimaryKey(Integer tId);
 }

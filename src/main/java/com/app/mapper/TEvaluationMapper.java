@@ -2,6 +2,8 @@ package com.app.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.app.model.TEvaluation;
 
 public interface TEvaluationMapper {
@@ -24,4 +26,7 @@ public interface TEvaluationMapper {
     
     //获取景点平均分
     float getRateAvg(Integer tInfoId);
+    
+    //管理员获取评价列表
+    List<TEvaluation> getRateListAdmin(@Param("aId") Integer aId,@Param("tInfoTitle")String tInfoTitle);
 }

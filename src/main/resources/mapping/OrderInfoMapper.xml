@@ -1,196 +1,241 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.app.mapper.OrderInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.app.model.OrderInfo" >
-    <id column="o_id" property="oId" jdbcType="INTEGER" />
-    <result column="t_id" property="tId" jdbcType="INTEGER" />
-    <result column="t_name" property="tName" jdbcType="VARCHAR" />
-    <result column="t_info_id" property="tInfoId" jdbcType="INTEGER" />
-    <result column="t_info_img" property="tInfoImg" jdbcType="VARCHAR" />
-    <result column="t_info_money" property="tInfoMoney" jdbcType="DECIMAL" />
-    <result column="o_time" property="oTime" jdbcType="VARCHAR" />
-    <result column="o_number" property="oNumber" jdbcType="INTEGER" />
-    <result column="o_money" property="oMoney" jdbcType="DECIMAL" />
-    <result column="t_info_title" property="tInfoTitle" jdbcType="VARCHAR" />
-    <result column="is_evaluation" property="isEvaluation" jdbcType="VARCHAR" />
-    <result column="is_order" property="isOrder" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    o_id, t_id, t_name, t_info_id, t_info_img, t_info_money, o_time, o_number, o_money, 
-    t_info_title, is_evaluation, is_order
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from order_info
-    where o_id = #{oId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from order_info
-    where o_id = #{oId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.app.model.OrderInfo" >
-    insert into order_info (o_id, t_id, t_name, 
-      t_info_id, t_info_img, t_info_money, 
-      o_time, o_number, o_money, 
-      t_info_title, is_evaluation, is_order
-      )
-    values (#{oId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{tName,jdbcType=VARCHAR}, 
-      #{tInfoId,jdbcType=INTEGER}, #{tInfoImg,jdbcType=VARCHAR}, #{tInfoMoney,jdbcType=DECIMAL}, 
-      #{oTime,jdbcType=VARCHAR}, #{oNumber,jdbcType=INTEGER}, #{oMoney,jdbcType=DECIMAL}, 
-      #{tInfoTitle,jdbcType=VARCHAR}, #{isEvaluation,jdbcType=VARCHAR}, #{isOrder,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="oId" parameterType="com.app.model.OrderInfo" >
-    insert into order_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="oId != null" >
-        o_id,
-      </if>
-      <if test="tId != null" >
-        t_id,
-      </if>
-      <if test="tName != null" >
-        t_name,
-      </if>
-      <if test="tInfoId != null" >
-        t_info_id,
-      </if>
-      <if test="tInfoImg != null" >
-        t_info_img,
-      </if>
-      <if test="tInfoMoney != null" >
-        t_info_money,
-      </if>
-      <if test="oTime != null" >
-        o_time,
-      </if>
-      <if test="oNumber != null" >
-        o_number,
-      </if>
-      <if test="oMoney != null" >
-        o_money,
-      </if>
-      <if test="tInfoTitle != null" >
-        t_info_title,
-      </if>
-      <if test="isEvaluation != null" >
-        is_evaluation,
-      </if>
-      <if test="isOrder != null" >
-        is_order,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="oId != null" >
-        #{oId,jdbcType=INTEGER},
-      </if>
-      <if test="tId != null" >
-        #{tId,jdbcType=INTEGER},
-      </if>
-      <if test="tName != null" >
-        #{tName,jdbcType=VARCHAR},
-      </if>
-      <if test="tInfoId != null" >
-        #{tInfoId,jdbcType=INTEGER},
-      </if>
-      <if test="tInfoImg != null" >
-        #{tInfoImg,jdbcType=VARCHAR},
-      </if>
-      <if test="tInfoMoney != null" >
-        #{tInfoMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="oTime != null" >
-        #{oTime,jdbcType=VARCHAR},
-      </if>
-      <if test="oNumber != null" >
-        #{oNumber,jdbcType=INTEGER},
-      </if>
-      <if test="oMoney != null" >
-        #{oMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="tInfoTitle != null" >
-        #{tInfoTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="isEvaluation != null" >
-        #{isEvaluation,jdbcType=VARCHAR},
-      </if>
-      <if test="isOrder != null" >
-        #{isOrder,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.app.model.OrderInfo" >
-    update order_info
-    <set >
-      <if test="tId != null" >
-        t_id = #{tId,jdbcType=INTEGER},
-      </if>
-      <if test="tName != null" >
-        t_name = #{tName,jdbcType=VARCHAR},
-      </if>
-      <if test="tInfoId != null" >
-        t_info_id = #{tInfoId,jdbcType=INTEGER},
-      </if>
-      <if test="tInfoImg != null" >
-        t_info_img = #{tInfoImg,jdbcType=VARCHAR},
-      </if>
-      <if test="tInfoMoney != null" >
-        t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="oTime != null" >
-        o_time = #{oTime,jdbcType=VARCHAR},
-      </if>
-      <if test="oNumber != null" >
-        o_number = #{oNumber,jdbcType=INTEGER},
-      </if>
-      <if test="oMoney != null" >
-        o_money = #{oMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="tInfoTitle != null" >
-        t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="isEvaluation != null" >
-        is_evaluation = #{isEvaluation,jdbcType=VARCHAR},
-      </if>
-      <if test="isOrder != null" >
-        is_order = #{isOrder,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where o_id = #{oId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.app.model.OrderInfo" >
-    update order_info
-    set t_id = #{tId,jdbcType=INTEGER},
-      t_name = #{tName,jdbcType=VARCHAR},
-      t_info_id = #{tInfoId,jdbcType=INTEGER},
-      t_info_img = #{tInfoImg,jdbcType=VARCHAR},
-      t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
-      o_time = #{oTime,jdbcType=VARCHAR},
-      o_number = #{oNumber,jdbcType=INTEGER},
-      o_money = #{oMoney,jdbcType=DECIMAL},
-      t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
-      is_evaluation = #{isEvaluation,jdbcType=VARCHAR},
-      is_order = #{isOrder,jdbcType=VARCHAR}
-    where o_id = #{oId,jdbcType=INTEGER}
-  </update>
-  
-  <select id="getOrderList" resultMap="BaseResultMap" parameterType="com.app.model.OrderInfo">
-  	select
-  	<include refid="Base_Column_List" />
-    from order_info
-    <where>
-    	<if test="tId != null">
-    		t_id = #{tId}
-    	</if>
-    	<if test="isEvaluation != null">
-    		and is_evaluation = #{isEvaluation}
-    	</if>
-    	<if test="isOrder != null">
-    		and is_order = #{isOrder}
-    	</if>
-    </where>
-    order by o_time desc
-  </select>
-  
+<mapper namespace="com.app.mapper.OrderInfoMapper">
+	<resultMap id="BaseResultMap" type="com.app.model.OrderInfo">
+		<id column="o_id" property="oId" jdbcType="INTEGER" />
+		<result column="t_id" property="tId" jdbcType="INTEGER" />
+		<result column="t_name" property="tName" jdbcType="VARCHAR" />
+		<result column="t_info_id" property="tInfoId"
+			jdbcType="INTEGER" />
+		<result column="t_info_img" property="tInfoImg"
+			jdbcType="VARCHAR" />
+		<result column="t_info_money" property="tInfoMoney"
+			jdbcType="DECIMAL" />
+		<result column="o_time" property="oTime" jdbcType="VARCHAR" />
+		<result column="o_number" property="oNumber" jdbcType="INTEGER" />
+		<result column="o_money" property="oMoney" jdbcType="DECIMAL" />
+		<result column="t_info_title" property="tInfoTitle"
+			jdbcType="VARCHAR" />
+		<result column="is_evaluation" property="isEvaluation"
+			jdbcType="VARCHAR" />
+		<result column="is_order" property="isOrder" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		o_id, t_id, t_name, t_info_id, t_info_img, t_info_money,
+		o_time, o_number,
+		o_money,
+		t_info_title, is_evaluation, is_order
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from order_info
+		where o_id = #{oId,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from order_info
+		where o_id =
+		#{oId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.app.model.OrderInfo">
+		insert into order_info (o_id,
+		t_id, t_name,
+		t_info_id, t_info_img, t_info_money,
+		o_time, o_number,
+		o_money,
+		t_info_title, is_evaluation, is_order
+		)
+		values
+		(#{oId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER},
+		#{tName,jdbcType=VARCHAR},
+		#{tInfoId,jdbcType=INTEGER},
+		#{tInfoImg,jdbcType=VARCHAR}, #{tInfoMoney,jdbcType=DECIMAL},
+		#{oTime,jdbcType=VARCHAR}, #{oNumber,jdbcType=INTEGER},
+		#{oMoney,jdbcType=DECIMAL},
+		#{tInfoTitle,jdbcType=VARCHAR},
+		#{isEvaluation,jdbcType=VARCHAR}, #{isOrder,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="oId" parameterType="com.app.model.OrderInfo">
+		insert into order_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="oId != null">
+				o_id,
+			</if>
+			<if test="tId != null">
+				t_id,
+			</if>
+			<if test="tName != null">
+				t_name,
+			</if>
+			<if test="tInfoId != null">
+				t_info_id,
+			</if>
+			<if test="tInfoImg != null">
+				t_info_img,
+			</if>
+			<if test="tInfoMoney != null">
+				t_info_money,
+			</if>
+			<if test="oTime != null">
+				o_time,
+			</if>
+			<if test="oNumber != null">
+				o_number,
+			</if>
+			<if test="oMoney != null">
+				o_money,
+			</if>
+			<if test="tInfoTitle != null">
+				t_info_title,
+			</if>
+			<if test="isEvaluation != null">
+				is_evaluation,
+			</if>
+			<if test="isOrder != null">
+				is_order,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="oId != null">
+				#{oId,jdbcType=INTEGER},
+			</if>
+			<if test="tId != null">
+				#{tId,jdbcType=INTEGER},
+			</if>
+			<if test="tName != null">
+				#{tName,jdbcType=VARCHAR},
+			</if>
+			<if test="tInfoId != null">
+				#{tInfoId,jdbcType=INTEGER},
+			</if>
+			<if test="tInfoImg != null">
+				#{tInfoImg,jdbcType=VARCHAR},
+			</if>
+			<if test="tInfoMoney != null">
+				#{tInfoMoney,jdbcType=DECIMAL},
+			</if>
+			<if test="oTime != null">
+				#{oTime,jdbcType=VARCHAR},
+			</if>
+			<if test="oNumber != null">
+				#{oNumber,jdbcType=INTEGER},
+			</if>
+			<if test="oMoney != null">
+				#{oMoney,jdbcType=DECIMAL},
+			</if>
+			<if test="tInfoTitle != null">
+				#{tInfoTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="isEvaluation != null">
+				#{isEvaluation,jdbcType=VARCHAR},
+			</if>
+			<if test="isOrder != null">
+				#{isOrder,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.app.model.OrderInfo">
+		update order_info
+		<set>
+			<if test="tId != null">
+				t_id = #{tId,jdbcType=INTEGER},
+			</if>
+			<if test="tName != null">
+				t_name = #{tName,jdbcType=VARCHAR},
+			</if>
+			<if test="tInfoId != null">
+				t_info_id = #{tInfoId,jdbcType=INTEGER},
+			</if>
+			<if test="tInfoImg != null">
+				t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+			</if>
+			<if test="tInfoMoney != null">
+				t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+			</if>
+			<if test="oTime != null">
+				o_time = #{oTime,jdbcType=VARCHAR},
+			</if>
+			<if test="oNumber != null">
+				o_number = #{oNumber,jdbcType=INTEGER},
+			</if>
+			<if test="oMoney != null">
+				o_money = #{oMoney,jdbcType=DECIMAL},
+			</if>
+			<if test="tInfoTitle != null">
+				t_info_title = #{tInfoTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="isEvaluation != null">
+				is_evaluation = #{isEvaluation,jdbcType=VARCHAR},
+			</if>
+			<if test="isOrder != null">
+				is_order = #{isOrder,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where o_id = #{oId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.app.model.OrderInfo">
+		update order_info
+		set t_id = #{tId,jdbcType=INTEGER},
+		t_name = #{tName,jdbcType=VARCHAR},
+		t_info_id =
+		#{tInfoId,jdbcType=INTEGER},
+		t_info_img = #{tInfoImg,jdbcType=VARCHAR},
+		t_info_money = #{tInfoMoney,jdbcType=DECIMAL},
+		o_time =
+		#{oTime,jdbcType=VARCHAR},
+		o_number = #{oNumber,jdbcType=INTEGER},
+		o_money = #{oMoney,jdbcType=DECIMAL},
+		t_info_title =
+		#{tInfoTitle,jdbcType=VARCHAR},
+		is_evaluation =
+		#{isEvaluation,jdbcType=VARCHAR},
+		is_order =
+		#{isOrder,jdbcType=VARCHAR}
+		where o_id = #{oId,jdbcType=INTEGER}
+	</update>
+
+	<select id="getOrderList" resultMap="BaseResultMap"
+		parameterType="com.app.model.OrderInfo">
+		select
+		<include refid="Base_Column_List" />
+		from order_info
+		<where>
+			<if test="tId != null">
+				t_id = #{tId}
+			</if>
+			<if test="isEvaluation != null">
+				and is_evaluation = #{isEvaluation}
+			</if>
+			<if test="isOrder != null">
+				and is_order = #{isOrder}
+			</if>
+		</where>
+		order by o_time desc
+	</select>
+	<select id="getOrderAdminList" resultMap="BaseResultMap">
+		select o.* from order_info o
+		left join t_info t on
+		o.t_info_id =
+		t.t_info_id
+		<where>
+			<if test="aId != null">
+				t.a_id = #{aId}
+			</if>
+
+		</where>
+	</select>
+
+	<select id="getOrderSum" resultMap="BaseResultMap">
+		select sum(o_money) o_money,
+		t_info_title 
+		from order_info
+		where is_order = '0'
+		group by t_info_id
+	</select>
 </mapper>

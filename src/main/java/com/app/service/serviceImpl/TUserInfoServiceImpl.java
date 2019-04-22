@@ -1,13 +1,17 @@
 package com.app.service.serviceImpl;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.app.mapper.TUserInfoMapper;
 import com.app.model.TUserInfo;
 import com.app.service.TUserInfoService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 @Service
 public class TUserInfoServiceImpl implements TUserInfoService {
 
@@ -41,6 +45,24 @@ public class TUserInfoServiceImpl implements TUserInfoService {
 	public int insertSelective(TUserInfo record) {
 		// TODO Auto-generated method stub
 		return mapper.insertSelective(record);
+	}
+
+	@Override
+	public JSONObject getUserList(TUserInfo record) {
+		// TODO Auto-generated method stub
+		JSONObject json = new JSONObject();
+		PageHelper.startPage(record.getPage(), 10);
+		List<TUserInfo> List = mapper.getUserList(record);
+		PageInfo<TUserInfo> pageInfo = new PageInfo<TUserInfo>(List);
+		json.put("userList", pageInfo.getList());
+		json.put("total", pageInfo.getTotal());
+		return json;
+	}
+
+	@Override
+	public int deleteByPrimaryKey(Integer tId) {
+		// TODO Auto-generated method stub
+		return mapper.deleteByPrimaryKey(tId);
 	}
 
 }

@@ -3,7 +3,7 @@ package com.app.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TUserInfo implements Serializable {
+public class TUserInfo extends BaseModel implements Serializable {
     private Integer tId;
 
     private String tName;

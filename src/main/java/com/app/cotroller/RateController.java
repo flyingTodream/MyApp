@@ -19,6 +19,7 @@ import com.app.service.RateService;
 import com.common.CommonContext;
 import com.common.utils.DateUtils;
 import com.common.utils.JwtUtils;
+import com.common.utils.StringUtils;
 
 @RestController
 @RequestMapping("api/")
@@ -72,6 +73,9 @@ public class RateController {
 					record.seteIsAnonymous("否");
 				}else {
 					record.seteIsAnonymous("是");
+				}
+				if(StringUtils.isEmpty(record.geteContent())) {
+					record.seteContent("此用户没有填写任何评价");
 				}
 				record.settName(JwtUtils.getUsername(token));
 				record.seteTime(DateUtils.dateToString(new Date()));
